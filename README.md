@@ -6,7 +6,7 @@ React Native front end build using React Native and Expo
 
 [Expo Documentation](https://expo.io/)
 
-## Installation and Usage - Mac
+## Installation and Usage
 
 Assuming that you have Node 10 LTS or greater installed, you can use npm to install the Expo CLI command line utility:
 
