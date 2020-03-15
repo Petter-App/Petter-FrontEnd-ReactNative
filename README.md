@@ -17,6 +17,12 @@ npm install -g expo-cli
 Navigate to the folder petter and type
 
 ```bash
+npm install
+```
+
+Then
+
+```bash
 expo start
 ```
 
