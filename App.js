@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import GreetingScreen from './screens/GreetingScreen';
+import LandingScreen from './screens/LandingScreen';
 
 const Stack = createStackNavigator();
 
@@ -49,7 +49,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <GreetingScreen/>
+        <LandingScreen/>
         </View>
     );
   }
