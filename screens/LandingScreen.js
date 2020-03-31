@@ -14,7 +14,7 @@ export default function LandingScreen() {
       <Text style={styles.header}>noSpringChickens </Text>
       </View>
       <View style={styles.landingingscreen}>
-      <Text style={styles.heading2}>match.adopt.chill.</Text>
+      <Text style={styles.heading2}>match.adopt.chill</Text>
       </View>
       <View style={styles.petImageContainer}>
           <Image
@@ -77,22 +77,21 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    fontSize:24, 
+    fontSize:28, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
-    borderBottomColor:'#199187',
-    borderBottomWidth: 1,
-
+    textAlign: 'center',
+    alignItems: 'center',
   },
+
   heading2: {
     fontSize:24, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
-    borderBottomColor:'#199187',
-    borderBottomWidth: 1,
-
+    textAlign: 'center',
+    alignItems: 'center',
   },
 
   heading3: {
@@ -102,9 +101,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     borderBottomColor:'#199187',
     borderBottomWidth: 1,
-
   },
-  
+
   contentContainer: {
     paddingTop: 30,
   },
