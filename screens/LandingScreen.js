@@ -4,6 +4,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import { RectButton} from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
+
 
 
 export default function LandingScreen() {
@@ -28,21 +32,31 @@ export default function LandingScreen() {
       <View style={styles.landingingscreen}>
       <Text style={styles.heading3}>Elton_john</Text>
       </View>
-      <OptionButton
-        icon="ios-log-in"
-        label="Log In"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-     /><OptionButton
-        icon="md-person-add"
-        label="Sign Up"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-      />
-            <OptionButton
-        icon="ios-build"
-        label="Update Profile"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-        isLastOption
-      />
+      <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+          <Text
+            style={{
+              backgroundColor: 'transparent',
+              fontSize: 15,
+              color: '#fff',
+            }}>
+Log in
+          </Text>
+</LinearGradient>
+<LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+          <Text
+            style={{
+              backgroundColor: 'transparent',
+              fontSize: 15,
+              color: '#fff',
+            }}>
+Register
+          </Text>
+</LinearGradient>
+
 
       </ScrollView>
 </View>
@@ -77,15 +91,32 @@ const styles = StyleSheet.create({
   },
 
   header: {
+
+    position: 'absolute',
+    width: 354,
+    height: 223,  
+    left: 6,
+    top: 148,
+
     fontSize:28, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
     textAlign: 'center',
     alignItems: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: {width: 4, height: 4},
+    textShadowRadius: 10
   },
 
   heading2: {
+
+    position: 'absolute',
+    width: 430,
+    height: 27,
+    left: -32,
+    top: 191,
+
     fontSize:24, 
     color:'#000000',
     paddingBottom: 10,
@@ -110,13 +141,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
+    
   },
   petImage: {
-    width: 500,
-    height: 400,
     resizeMode: 'contain',
     marginTop: 3,
     marginLeft: -10,
+    width: 250,
+    height: 250,
+    borderRadius: 150 / 2,
+    overflow: "hidden",
+
   },
   petsPageBodyContainer: {
     alignItems: 'center',
@@ -189,6 +224,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: 1,
   },
+
+  
 });
 
 
