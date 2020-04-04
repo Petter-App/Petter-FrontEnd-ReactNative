@@ -22,7 +22,7 @@ export default function LandingScreen() {
       </View>
       <View style={styles.petImageContainer}>
           <Image
-            source={require('../assets/images/dog.jpg')}
+            source={require('../assets/images/elton.jpg')}
             style={styles.petImage}
           />
         </View>
@@ -32,8 +32,10 @@ export default function LandingScreen() {
       <View style={styles.landingingscreen}>
       <Text style={styles.heading3}>Elton_john</Text>
       </View>
+      <View style={styles.buttonContainer}>
+
       <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
+          colors={['#FF4D00', '#FF4D00', '#FF008A']}
           style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
           <Text
             style={{
@@ -45,7 +47,7 @@ Log in
           </Text>
 </LinearGradient>
 <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
+          colors={['#FF4D00', '#FF4D00', '#FF008A']}
           style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
           <Text
             style={{
@@ -56,29 +58,13 @@ Log in
 Register
           </Text>
 </LinearGradient>
-
+</View>
 
       </ScrollView>
 </View>
     );
   }
 
-
-  function OptionButton({ icon, label, onPress, isLastOption }) {
-    return (
-      <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
-        <View style={{ flexDirection: 'row' }}>
-          <View style={styles.optionIconContainer}>
-            <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
-          </View>
-          <View style={styles.optionTextContainer}>
-            <Text style={styles.optionText}>{label}</Text>
-          </View>
-        </View>
-      </RectButton>
-    );
-  }
-  
 
 
 const styles = StyleSheet.create({
@@ -92,7 +78,10 @@ const styles = StyleSheet.create({
 
   header: {
 
-    position: 'absolute',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',    
     width: 354,
     height: 223,  
     left: 6,
@@ -111,9 +100,12 @@ const styles = StyleSheet.create({
 
   heading2: {
 
-    position: 'absolute',
-    width: 430,
-    height: 27,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',    
+    width: 354,
+    height: 223,
     left: -32,
     top: 191,
 
@@ -137,22 +129,29 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
+
   petImageContainer: {
-    alignItems: 'center',
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    alignItems: 'flex-start',
     marginTop: 10,
     marginBottom: 20,
+
     
   },
+
   petImage: {
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-    width: 250,
-    height: 250,
-    borderRadius: 150 / 2,
-    overflow: "hidden",
+
+    marginTop: 340,
+    marginLeft: 20,
+    width: 100,
+    height: 100,
+    borderRadius: 100 / 2,
 
   },
+
   petsPageBodyContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
@@ -224,6 +223,13 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: 1,
   },
+
+  buttonContainer:{
+    flex:2,
+    flexDirection:'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
   
 });
