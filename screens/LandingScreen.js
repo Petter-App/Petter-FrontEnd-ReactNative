@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import { LinearGradient } from 'expo-linear-gradient';
 
 
@@ -18,6 +17,7 @@ export default function LandingScreen() {
       <View style={styles.landingingscreen}>
       <Text style={styles.heading2}>match.adopt.chill</Text>
       </View>
+      <View style={styles.footerContainer}>
       <View style={styles.petImageContainer}>
           <Image
             source={require('../assets/images/elton.jpg')}
@@ -28,7 +28,8 @@ export default function LandingScreen() {
       <Text style={styles.heading3}>No exercise, cuddles please!</Text>
       </View>
       <View style={styles.landingingscreen}>
-      <Text style={styles.heading3}>Elton_john</Text>
+      <Text style={styles.heading4}>Elton_john</Text>
+      </View>
       </View>
       <View style={styles.buttonContainer}>
 
@@ -77,17 +78,18 @@ const styles = StyleSheet.create({
   header: {
 
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'stretch',    
+    alignItems: 'center',    
     width: 354,
     height: 223,  
     left: 6,
-    top: 148,
+    top: 48,
 
     fontSize:28, 
     color:'#000000',
     paddingBottom: 10,
+    marginTop:139,
     marginBottom: 40,
     textAlign: 'center',
     alignItems: 'center',
@@ -99,9 +101,9 @@ const styles = StyleSheet.create({
   heading2: {
 
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'stretch',    
+    alignItems: 'center',
     width: 354,
     height: 223,
     left: -32,
@@ -116,12 +118,34 @@ const styles = StyleSheet.create({
   },
 
   heading3: {
-    fontSize:24, 
+    fontSize:18, 
+    color:'#000000',
+    paddingBottom: 10,
+    marginBottom: 5,
+    alignItems:'stretch',
+    marginTop: 380,
+    marginLeft: 125,
+    width: 300,
+    height: 100,
+    
+  },
+
+  footerContainer:{
+    flex:2,
+    flexDirection:'column',
+  },
+
+  heading4: {
+    fontSize:14, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
-    borderBottomColor:'#199187',
-    borderBottomWidth: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 340,
+    marginLeft: 20,
+    width: 100,
+    height: 100,
   },
 
   contentContainer: {
@@ -129,13 +153,14 @@ const styles = StyleSheet.create({
   },
 
   petImageContainer: {
-    flex: 2,
+    position: 'absolute',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
     alignItems: 'flex-start',
     marginTop: 10,
     marginBottom: 20,
+    
 
     
   },
@@ -188,48 +213,15 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  linkContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  Link: {
-    paddingVertical: 15,
-  },
-  LinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-  optionIconContainer: {
-    marginRight: 12,
-  },
-  option: {
-    backgroundColor: '#fdfdfd',
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: 0,
-    borderColor: '#ededed',
-  },
-  lastOption: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  optionText: {
-    fontSize: 15,
-    alignSelf: 'flex-start',
-    marginTop: 1,
-  },
+
 
   buttonContainer:{
     flex:2,
     flexDirection:'row',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 
-  
 });
 
 

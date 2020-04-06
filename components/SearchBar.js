@@ -21,3 +21,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+// this is from ui interface called react native elements, again a library, i didn't test this one out but I am unsure if you want to use it

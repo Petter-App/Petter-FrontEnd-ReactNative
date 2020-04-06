@@ -18,3 +18,5 @@ export default class HeaderExample extends Component {
     );
   }
 }
+
+//this is wrong, I coppied it from a framework NativeBase and it's just a library, it spit out an error message and I realized that I am making a stupid mistake of limiting us with some half baked libraries. Having said that if you know a good library bring it on
