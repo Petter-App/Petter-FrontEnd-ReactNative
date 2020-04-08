@@ -131,18 +131,18 @@ const styles = StyleSheet.create({
   },
 
   footerContainer:{
-    flex:2,
+    flex:3,
     flexDirection:'column',
   },
 
   heading4: {
+    position:'absolute',
     fontSize:14, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: 340,
     marginLeft: 20,
     width: 100,
     height: 100,
