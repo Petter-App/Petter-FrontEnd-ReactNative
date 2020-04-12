@@ -24,10 +24,10 @@ export default function LandingScreen() {
             style={styles.petImage}
           />
         </View>
-        <View style={styles.landingingscreen}>
+        <View style={styles.footerContainer}>
       <Text style={styles.heading3}>No exercise, cuddles please!</Text>
       </View>
-      <View style={styles.landingingscreen}>
+      <View style={styles.footerContainer}>
       <Text style={styles.heading4}>Elton_john</Text>
       </View>
       </View>
@@ -117,11 +117,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  footerContainer:{
+    flex:1,
+    flexDirection:'column',
+  },
+  
   heading3: {
+    position:'absolute',
+    flex:1,
     fontSize:18, 
     color:'#000000',
     paddingBottom: 10,
-    marginBottom: 5,
     alignItems:'stretch',
     marginTop: 380,
     marginLeft: 125,
@@ -130,22 +136,19 @@ const styles = StyleSheet.create({
     
   },
 
-  footerContainer:{
-    flex:3,
-    flexDirection:'column',
-  },
-
   heading4: {
+    flex:1,
     position:'absolute',
     fontSize:14, 
     color:'#000000',
     paddingBottom: 10,
     marginBottom: 40,
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginLeft: 20,
-    width: 100,
+    alignItems: 'stretch',
+    marginLeft: 125,
+    width: 300,
     height: 100,
+    marginTop:400,
   },
 
   contentContainer: {
