@@ -35,25 +35,17 @@ export default function LandingScreen() {
 
       <LinearGradient
           colors={['#FF4D00', '#FF4D00', '#FF008A']}
-          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+          style={styles.linearGradient}>
           <Text
-            style={{
-              backgroundColor: 'transparent',
-              fontSize: 15,
-              color: '#fff',
-            }}>
+            style={styles.buttonText}>
 Log in
           </Text>
 </LinearGradient>
 <LinearGradient
           colors={['#FF4D00', '#FF4D00', '#FF008A']}
-          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+          style={styles.linearGradient}>
           <Text
-            style={{
-              backgroundColor: 'transparent',
-              fontSize: 15,
-              color: '#fff',
-            }}>
+            style={styles.buttonText}>
 Register
           </Text>
 </LinearGradient>
@@ -118,10 +110,9 @@ const styles = StyleSheet.create({
   },
 
   heading3: {
+    flex:1,
     fontSize:18, 
     color:'#000000',
-    paddingBottom: 10,
-    marginBottom: 5,
     alignItems:'stretch',
     marginTop: 380,
     marginLeft: 125,
@@ -131,11 +122,12 @@ const styles = StyleSheet.create({
   },
 
   footerContainer:{
-    flex:3,
+    flex:1,
     flexDirection:'column',
   },
 
   heading4: {
+    flex:1,
     position:'absolute',
     fontSize:14, 
     color:'#000000',
@@ -143,7 +135,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginLeft: 20,
+    marginLeft: 125,
     width: 100,
     height: 100,
   },
@@ -216,12 +208,31 @@ const styles = StyleSheet.create({
 
 
   buttonContainer:{
+  
     flex:2,
     flexDirection:'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent:'space-around',
+    alignItems: 'flex-start',
+    marginTop: 80,
+    marginLeft: 20,
+    
   },
 
+  buttonText:{
+    
+      backgroundColor: 'transparent',
+      fontSize: 15,
+      color: '#fff',
+  },
+
+  linearGradient:{
+    padding: 15,
+    alignItems: 'center', 
+    borderRadius: 5,
+    position: 'relative',
+    width: 157,
+    height: 46,
+  }
 });
 
 
