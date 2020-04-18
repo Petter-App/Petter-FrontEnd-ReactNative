@@ -4,9 +4,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-
-
-
 export default function LandingScreen() {
   return (
     <View style={styles.container}>
@@ -15,7 +12,7 @@ export default function LandingScreen() {
       <Text style={styles.header}>noSpringChickens </Text>
       </View>
       <View style={styles.landingingscreen}>
-      <Text style={styles.heading2}>match.adopt.chill</Text>
+      <Text style={styles.heading2}>match.adopt.chill.</Text>
       </View>
       <View style={styles.footerContainer}>
       <View style={styles.petImageContainer}>
@@ -24,39 +21,21 @@ export default function LandingScreen() {
             style={styles.petImage}
           />
         </View>
-        <View style={styles.footerContainer}>
-      <Text style={styles.heading3}>No exercise, cuddles please!</Text>
-      </View>
-      <View style={styles.footerContainer}>
+      <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
       <Text style={styles.heading4}>Elton_john</Text>
-      </View>
       </View>
       <View style={styles.buttonContainer}>
 
       <LinearGradient
-          colors={['#FF4D00', '#FF4D00', '#FF008A']}
-          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
+           colors={['#FF008A', '#FF4D00']}
+           start={[20, 0.20]}
+          style={styles.linearGradient}>
           <Text
-            style={{
-              backgroundColor: 'transparent',
-              fontSize: 15,
-              color: '#fff',
-            }}>
-Log in
+            style={styles.buttonText}>
+Browse
           </Text>
 </LinearGradient>
-<LinearGradient
-          colors={['#FF4D00', '#FF4D00', '#FF008A']}
-          style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}>
-          <Text
-            style={{
-              backgroundColor: 'transparent',
-              fontSize: 15,
-              color: '#fff',
-            }}>
-Register
-          </Text>
-</LinearGradient>
+
 </View>
 
       </ScrollView>
@@ -73,6 +52,8 @@ const styles = StyleSheet.create({
   },
   landingscreen: {
     alignSelf:'stretch',
+    justifyContent:'center'
+
   },
 
   header: {
@@ -80,22 +61,24 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',    
-    width: 354,
-    height: 223,  
-    left: 6,
-    top: 48,
+    alignItems: 'stretch',
 
-    fontSize:28, 
-    color:'#000000',
+    position: 'relative',
+    height: 223,
+    left: 13,
+    top: 106,
+
     paddingBottom: 10,
-    marginTop:139,
-    marginBottom: 40,
+    marginTop:20,
+
+    fontSize: 28,
+    lineHeight: 31,  
+    letterSpacing: -0.015,  
+    color:'#1F1815',
+    fontWeight:'bold',
+
     textAlign: 'center',
     alignItems: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.25)',
-    textShadowOffset: {width: 4, height: 4},
-    textShadowRadius: 10
   },
 
   heading2: {
@@ -103,52 +86,60 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    width: 354,
-    height: 223,
-    left: -32,
-    top: 191,
+    alignItems: 'stretch',
+    position: 'relative',
+    height: 27,
+    top: 102,
 
-    fontSize:24, 
+    fontSize: 24,
+    lineHeight: 27,
+
     color:'#000000',
-    paddingBottom: 10,
-    marginBottom: 40,
+
     textAlign: 'center',
     alignItems: 'center',
+    letterSpacing: -0.015,
+  },
+
+  heading3: {
+
+    flex:1,
+    fontSize:18, 
+    color:'#000000',
+    alignItems:'stretch',
+    justifyContent:'center',
+
+
+    marginTop: 380,
+    marginLeft: 125,
+    height: 100,
+    
   },
 
   footerContainer:{
     flex:1,
     flexDirection:'column',
-  },
-  
-  heading3: {
-    position:'absolute',
-    flex:1,
-    fontSize:18, 
-    color:'#000000',
-    paddingBottom: 10,
-    alignItems:'stretch',
-    marginTop: 380,
-    marginLeft: 125,
-    width: 300,
-    height: 100,
-    
+    justifyContent:'center',
+    textAlign:'center',
+    alignSelf:'center'
   },
 
   heading4: {
+
     flex:1,
-    position:'absolute',
+    position:'relative',
     fontSize:14, 
     color:'#000000',
+
     paddingBottom: 10,
     marginBottom: 40,
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
+    justifyContent: 'center',
+
+
+    alignItems: 'center',
     marginLeft: 125,
-    width: 300,
     height: 100,
-    marginTop:400,
+
   },
 
   contentContainer: {
@@ -156,14 +147,18 @@ const styles = StyleSheet.create({
   },
 
   petImageContainer: {
+
+    flex:1,
     position: 'absolute',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
-    alignItems: 'flex-start',
+
+
     marginTop: 10,
     marginBottom: 20,
-    
+    textAlign:'center',
+    marginLeft:20,
+    alignSelf:'center',
+    left:'03%',
+
 
     
   },
@@ -171,10 +166,10 @@ const styles = StyleSheet.create({
   petImage: {
 
     marginTop: 340,
-    marginLeft: 20,
     width: 100,
     height: 100,
     borderRadius: 100 / 2,
+    textAlign:'center',
 
   },
 
@@ -219,12 +214,40 @@ const styles = StyleSheet.create({
 
 
   buttonContainer:{
-    flex:2,
+  
+    flex:1,
     flexDirection:'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'stretch',
+    marginTop: 80,
+    justifyContent:'center'
+
   },
 
+  buttonText:{
+    
+      backgroundColor: 'transparent',
+      fontSize: 15,
+      color: '#fff',
+  },
+
+  linearGradient:{
+
+    padding: 15,
+    alignItems: 'center', 
+    borderRadius: 5,
+    position: 'relative',
+
+
+    width: 157,
+    height: 46,
+    left: 10,
+    right: 0,
+    top: 0,
+
+
+    marginTop: 180,
+    paddingBottom: 10,
+    marginBottom: 40,
+
+  }
 });
-
-
