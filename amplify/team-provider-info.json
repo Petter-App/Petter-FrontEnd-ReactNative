@@ -1,0 +1,20 @@
+{
+    "petter": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-petter-petter-122300-authRole",
+            "UnauthRoleArn": "arn:aws:iam::750031742554:role/amplify-petter-petter-122300-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::750031742554:role/amplify-petter-petter-122300-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-petter-petter-122300-deployment",
+            "UnauthRoleName": "amplify-petter-petter-122300-unauthRole",
+            "StackName": "amplify-petter-petter-122300",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:750031742554:stack/amplify-petter-petter-122300/4aef6ad0-812c-11ea-9089-0abb0b30af12",
+            "AmplifyAppId": "d2pey1bajdhelm"
+        },
+        "categories": {
+            "auth": {
+                "petter47cb8dd5": {}
+            }
+        }
+    }
+}
