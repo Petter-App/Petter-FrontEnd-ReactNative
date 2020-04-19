@@ -2,12 +2,26 @@ import React, { Component } from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Row } from 'native-base';
+import * as WebBrowser from 'expo-web-browser';
+
+
 
 
 export default function LandingScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.linkContainer}>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
+            <Text style={styles.linkText}>Login</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
+            <Text style={styles.linkText}>Register</Text>
+          </TouchableOpacity>
+        </View>
       <View style={styles.landingingscreen}>
       <Text style={styles.header}>noSpringChickens </Text>
       </View>
@@ -43,6 +57,11 @@ Browse
     );
   }
 
+  function handleLinkPress() {
+    WebBrowser.openBrowserAsync(
+      'https://app.slack.com/client/T9QRX4NTA/GS94VLX4H/details'
+    );
+  }
 
 
 const styles = StyleSheet.create({
@@ -121,7 +140,8 @@ const styles = StyleSheet.create({
     flexDirection:'column',
     justifyContent:'center',
     textAlign:'center',
-    alignSelf:'center'
+    alignSelf:'center',
+    marginTop:180,
   },
 
   heading4: {
@@ -152,7 +172,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    marginTop: 10,
+    marginTop: 50,
     marginBottom: 20,
     textAlign:'center',
     marginLeft:20,
@@ -249,5 +269,11 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     marginBottom: 40,
 
-  }
+  },
+  linkContainer: {
+    flex:1,
+    flexDirection:'row',
+    marginTop: 15,
+    alignItems: 'center',
+  },
 });
