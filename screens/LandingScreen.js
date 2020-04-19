@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
 
+import { MonoText } from '../components/StyledText';
 
 
 
@@ -13,12 +14,12 @@ export default function LandingScreen() {
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.linkContainer}>
-          <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.Link1}>
             <Text style={styles.linkText}>Login</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.linkContainer}>
-          <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.Link2}>
             <Text style={styles.linkText}>Register</Text>
           </TouchableOpacity>
         </View>
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     textAlign:'center',
     alignSelf:'center',
-    marginTop:180,
+    marginTop:80,
   },
 
   heading4: {
@@ -151,8 +152,7 @@ const styles = StyleSheet.create({
     fontSize:14, 
     color:'#000000',
 
-    paddingBottom: 10,
-    marginBottom: 40,
+
     justifyContent: 'center',
 
 
@@ -238,8 +238,12 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     alignItems: 'stretch',
-    marginTop: 80,
-    justifyContent:'center'
+    justifyContent:'center',
+    position:'absolute',
+    alignSelf:'center',
+    marginTop:730,
+
+    
 
   },
 
@@ -251,15 +255,15 @@ const styles = StyleSheet.create({
   },
 
   linearGradient:{
-
     padding: 15,
     alignItems: 'center', 
     borderRadius: 5,
     position: 'relative',
+    alignSelf:'center',
 
 
     width: 157,
-    height: 46,
+
     left: 10,
     right: 0,
     top: 0,
@@ -273,7 +277,24 @@ const styles = StyleSheet.create({
   linkContainer: {
     flex:1,
     flexDirection:'row',
-    marginTop: 15,
+    marginTop: 10,
     alignItems: 'center',
+    alignContent:'center',
+    justifyContent:'flex-start',
+    position:'relative',
+
   },
+  Link1:{
+    flex:1, 
+  },
+  Link2:{
+    flex:1, 
+    position: 'absolute',
+    left: 78.4,
+right: 4.27,
+top: 8.25,
+bottom: 89,
+alignItems: 'center',
+textAlign: 'center',
+  }
 });
