@@ -14,13 +14,13 @@ export default function LandingScreen() {
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.linkContainer}>
-          <TouchableOpacity onPress={handleLinkPress} style={styles.Link1}>
-            <Text style={styles.linkText}>Login</Text>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.login}>
+            <Text style={styles.linkText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.linkContainer}>
-          <TouchableOpacity onPress={handleLinkPress} style={styles.Link2}>
-            <Text style={styles.linkText}>Register</Text>
+          <TouchableOpacity onPress={handleLinkPress} style={styles.register}>
+            <Text style={styles.linkText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
       <View style={styles.landingingscreen}>
@@ -78,18 +78,20 @@ const styles = StyleSheet.create({
 
   header: {
 
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'stretch',
+    alignSelf:'center',
 
-    position: 'relative',
-    height: 223,
-    left: 13,
-    top: 106,
+    position: 'absolute',
+    width: '355',
+    height: '223',
+    left: '6',
+    top: '111',
 
     paddingBottom: 10,
-    marginTop:20,
+    marginTop:180,
 
     fontSize: 28,
     lineHeight: 31,  
@@ -103,35 +105,41 @@ const styles = StyleSheet.create({
 
   heading2: {
 
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'stretch',
-    position: 'relative',
-    height: 27,
-    top: 102,
+    
+    alignSelf:'center',
+    position: 'absolute',
+
+
+    width: '355',
+    height: '223',
+    left: '6',
+    top: '111',
+    marginTop:220,
+
 
     fontSize: 24,
     lineHeight: 27,
 
     color:'#000000',
 
-    textAlign: 'center',
-    alignItems: 'center',
     letterSpacing: -0.015,
   },
 
   heading3: {
 
     flex:1,
-    fontSize:18, 
+    fontSize:13, 
     color:'#000000',
     alignItems:'stretch',
     justifyContent:'center',
 
 
     marginTop: 380,
-    marginLeft: 125,
+    marginLeft: 100,
     height: 100,
     
   },
@@ -148,17 +156,28 @@ const styles = StyleSheet.create({
   heading4: {
 
     flex:1,
-    position:'relative',
-    fontSize:14, 
     color:'#000000',
 
 
     justifyContent: 'center',
+    alignSelf:'center',
 
 
     alignItems: 'center',
-    marginLeft: 125,
     height: 100,
+    width: 80, 
+
+
+    position:'absolute',
+    left: '32.53%',
+    right: '49.6%',
+    top: '100.65%',
+    bottom: '23.15%',
+
+    fontSize: 11,
+    lineHeight: 13,
+    fontWeight: 'bold',
+
 
   },
 
@@ -185,10 +204,15 @@ const styles = StyleSheet.create({
 
   petImage: {
 
-    marginTop: 340,
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
+    left: '-6.71%',
+    right: '100%',
+    top: '-25.71%',
+    bottom: '125%',
+
+    marginTop: 300,
+    width: 70,
+    height: 70,
+    borderRadius: 70 / 2,
     textAlign:'center',
 
   },
@@ -241,7 +265,11 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     position:'absolute',
     alignSelf:'center',
-    marginTop:730,
+
+    left: '14.53%',
+    right: '20.27%',
+    top: '105.51%',
+    bottom: '11.58%',
 
     
 
@@ -277,24 +305,52 @@ const styles = StyleSheet.create({
   linkContainer: {
     flex:1,
     flexDirection:'row',
-    marginTop: 10,
+    marginTop: 5,
     alignItems: 'center',
     alignContent:'center',
-    justifyContent:'flex-start',
-    position:'relative',
+    justifyContent:'space-between',
+    position:'absolute',
+    width:300, 
+    height:1,
+    alignSelf:'center',
 
   },
-  Link1:{
-    flex:1, 
-  },
-  Link2:{
+
+  login:{
+
     flex:1, 
     position: 'absolute',
-    left: 78.4,
-right: 4.27,
-top: 8.25,
-bottom: 89,
-alignItems: 'center',
-textAlign: 'center',
+
+    left: '9.33%',
+    right: '80%',
+    top: '8.62%',
+    bottom: '89.53%',
+
+    alignItems: 'center',
+    textAlign: 'center',
+
+    color:'#1F1815',
+    fontWeight:'bold',
+
+    fontSize: 13,
+    lineHeight: 15,
+
+    letterSpacing: 0.04,
+
+    
+  },
+  
+    register:{
+
+    flex:1, 
+    position: 'absolute',
+
+    left: '74.67%',
+    right: '8%',
+    top: '8.62%',
+    bottom: '89.53%',
+
+    alignItems: 'center',
+    textAlign: 'center',
   }
 });
