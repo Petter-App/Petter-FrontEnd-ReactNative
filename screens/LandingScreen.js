@@ -42,11 +42,10 @@ export default function LandingScreen() {
       <View style={styles.buttonContainer}>
 
       <LinearGradient
-           colors={['#FF008A', '#FF4D00']}
+           colors={['#FF4D00','#FF008A']}
            start={[20, 0.20]}
           style={styles.linearGradient}>
-          <Text
-            style={styles.buttonText}>
+          <Text style={styles.buttonText}>
 Browse
           </Text>
 </LinearGradient>
@@ -85,10 +84,10 @@ const styles = StyleSheet.create({
     alignSelf:'center',
 
     position: 'absolute',
-    width: '355',
-    height: '223',
-    left: '6',
-    top: '111',
+    width: 355,
+    height: 223,
+    left: 26,
+    top: 111,
 
     paddingBottom: 10,
     marginTop:180,
@@ -114,10 +113,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    width: '355',
-    height: '223',
-    left: '6',
-    top: '111',
+    width: 355,
+    height: 223,
+    left:106,
+    top: 111,
     marginTop:220,
 
 
@@ -137,6 +136,10 @@ const styles = StyleSheet.create({
     alignItems:'stretch',
     justifyContent:'center',
 
+    left: -24.4,
+    right: 20.27,
+    top: 73.52,
+    bottom: 24.63,
 
     marginTop: 380,
     marginLeft: 100,
@@ -150,7 +153,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     textAlign:'center',
     alignSelf:'center',
-    marginTop:80,
+    marginTop:200,
   },
 
   heading4: {
@@ -169,10 +172,10 @@ const styles = StyleSheet.create({
 
 
     position:'absolute',
-    left: '32.53%',
-    right: '49.6%',
-    top: '100.65%',
-    bottom: '23.15%',
+    left: 32.53,
+    right: 49.6,
+    top: 100.65,
+    bottom: 23.15,
 
     fontSize: 11,
     lineHeight: 13,
@@ -191,12 +194,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    marginTop: 50,
+    marginTop: 60,
     marginBottom: 20,
-    textAlign:'center',
     marginLeft:20,
     alignSelf:'center',
-    left:'03%',
+    left:3,
 
 
     
@@ -204,16 +206,15 @@ const styles = StyleSheet.create({
 
   petImage: {
 
-    left: '-6.71%',
-    right: '100%',
-    top: '-25.71%',
-    bottom: '125%',
+    left: -20.71,
+    right: 80,
+    top: -25.71,
+    bottom: 125,
 
-    marginTop: 300,
+    marginTop: 250,
     width: 70,
     height: 70,
     borderRadius: 70 / 2,
-    textAlign:'center',
 
   },
 
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
     }),
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
+    paddingVertical: '0',
   },
   tabBarInfoText: {
     fontSize: 17,
@@ -266,11 +267,10 @@ const styles = StyleSheet.create({
     position:'absolute',
     alignSelf:'center',
 
-    left: '14.53%',
-    right: '20.27%',
-    top: '105.51%',
-    bottom: '11.58%',
-
+    left: 14.53,
+    right: 20.27,
+    top: 92.51,
+    bottom: 11.58,
     
 
   },
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     top: 0,
 
 
-    marginTop: 180,
+    marginTop: 580,
     paddingBottom: 10,
     marginBottom: 40,
 
@@ -321,10 +321,10 @@ const styles = StyleSheet.create({
     flex:1, 
     position: 'absolute',
 
-    left: '9.33%',
-    right: '80%',
-    top: '8.62%',
-    bottom: '89.53%',
+    left: 19,
+    right: 80,
+    top: 8,
+    bottom: 89,
 
     alignItems: 'center',
     textAlign: 'center',
@@ -336,6 +336,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
 
     letterSpacing: 0.04,
+    justifyContent:'space-between',
 
     
   },
@@ -345,12 +346,14 @@ const styles = StyleSheet.create({
     flex:1, 
     position: 'absolute',
 
-    left: '74.67%',
-    right: '8%',
-    top: '8.62%',
-    bottom: '89.53%',
+    left: 40,
+    right: 8,
+    top: 8,
+    bottom: 89,
 
     alignItems: 'center',
     textAlign: 'center',
+    justifyContent:'space-between',
+
   }
 });
