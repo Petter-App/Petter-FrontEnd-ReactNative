@@ -1,15 +1,22 @@
 import React from 'react'
 import 'react-native-gesture-handler';
-import { Text, View } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { Authenticator, SignIn } from "aws-amplify-react-native";
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+import { CustomSignIn } from './CustomSignIn';
+import Auth from 'aws-amplify';
+
+Amplify.configure(awsconfig);
 
 import AccountScreen from './AccountScreen';
 import LandingScreen from './LandingScreen';
 import PetsScreen from './PetsScreen';
 
 const Tab = createBottomTabNavigator();
-
 
 export default function ScreenContainer() {
     return (

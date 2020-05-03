@@ -3,17 +3,9 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import ScreenContainer from './screens/ScreenContainer';
-import Amplify from 'aws-amplify';
-import amplify from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react-native';
 
-
-const Stack = createStackNavigator();
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -46,7 +38,6 @@ function App(props) {
 
     loadResourcesAndDataAsync();
   }, []);
-
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
@@ -54,7 +45,7 @@ function App(props) {
       <ScreenContainer />
     );
   }
-}
+};
 
 export default App;
 

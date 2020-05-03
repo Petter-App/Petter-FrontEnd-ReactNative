@@ -3,49 +3,54 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { withAuthenticator } from 'aws-amplify-react-native'
+import { Authenticator, SignIn } from "aws-amplify-react-native";
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { Auth } from 'aws-amplify';
+import { CustomSignIn } from './CustomSignIn';
+import Auth from 'aws-amplify'
 
 Amplify.configure(awsconfig);
 
-async function signOut() {
+async function customSignOut() {
   try {
     await Auth.signOut();
   } catch (error) {
     console.log('error signing out: ', error);
+    console.log('authState')
   }
 }
 
-function AccountScreen() {
+function AccountScreen(props) {
+
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <View style={styles.contentContainer}>
-        <View style={styles.container}>
-          <Text style={styles.header}>Account Settings</Text>
+    <Authenticator usernameAttributes='email'>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.contentContainer}>
+          <View style={styles.container}>
+            <Text style={styles.header}>Account Settings</Text>
+          </View>
+          <OptionButton
+            icon="ios-build"
+            label="Update Profile"
+            onPress={() => WebBrowser.openBrowserAsync('')} />
+          <OptionButton
+            icon="ios-rocket"
+            label="Go to PetRescue"
+            onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
+          />
+          <OptionButton
+            icon="ios-rocket"
+            label="Sign Out"
+            onPress={() => customSignOut()}
+            isLastOption
+          />
         </View>
-        <OptionButton
-          icon="ios-build"
-          label="Update Profile"
-          onPress={() => WebBrowser.openBrowserAsync('')} />
-        <OptionButton
-          icon="ios-rocket"
-          label="Go to PetRescue"
-          onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
-        />
-        <OptionButton
-          icon="ios-rocket"
-          label="Sign Out"
-          onPress={() => signOut()}
-          isLastOption
-        />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </Authenticator>
   );
 }
 
-export default withAuthenticator(AccountScreen)
+export default AccountScreen
 
 function OptionButton({ icon, label, onPress, isLastOption }) {
   return (

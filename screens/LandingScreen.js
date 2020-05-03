@@ -36,15 +36,10 @@ export default function LandingScreen() {
         </View>
         <View style={styles.buttonContainer}>
 
-          <LinearGradient
-            colors={['#FF008A', '#FF4D00']}
-            start={[20, 0.20]}
-            style={styles.linearGradient}>
-            <Text
-              style={styles.buttonText}>
-              Browse
+          <Text
+            style={styles.buttonText}>
+            Browse
           </Text>
-          </LinearGradient>
 
         </View>
 
