@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
   header: {
 
-    flex: 2,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'stretch',
@@ -85,15 +85,14 @@ const styles = StyleSheet.create({
 
     position: 'absolute',
     width: 355,
-    height: 223,
+    height: 323,
     left: 26,
-    top: 111,
+    top: 80,
 
     paddingBottom: 10,
-    marginTop:180,
+    marginTop:150,
 
-    fontSize: 28,
-    lineHeight: 31,  
+    fontSize: 38,
     letterSpacing: -0.015,  
     color:'#1F1815',
     fontWeight:'bold',
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
     width: 355,
     height: 223,
     left:106,
-    top: 111,
+    top: 80,
     marginTop:220,
 
 
@@ -138,7 +137,7 @@ const styles = StyleSheet.create({
 
     left: -24.4,
     right: 20.27,
-    top: 73.52,
+    top:-55,
     bottom: 24.63,
 
     marginTop: 380,
@@ -172,9 +171,9 @@ const styles = StyleSheet.create({
 
 
     position:'absolute',
-    left: 32.53,
+    left: 82.53,
     right: 49.6,
-    top: 100.65,
+    top: 350,
     bottom: 23.15,
 
     fontSize: 11,
@@ -269,7 +268,7 @@ const styles = StyleSheet.create({
 
     left: 14.53,
     right: 20.27,
-    top: 92.51,
+    top: 82.51,
     bottom: 11.58,
     
 
@@ -278,12 +277,13 @@ const styles = StyleSheet.create({
   buttonText:{
     
       backgroundColor: 'transparent',
-      fontSize: 15,
+      fontSize: 16,
       color:'#42f55a',
   },
 
   linearGradient:{
-    padding: 15,
+
+    padding: 10,
     alignItems: 'center', 
     borderRadius: 5,
     position: 'relative',
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
 
     marginTop: 580,
     paddingBottom: 10,
-    marginBottom: 40,
+    marginBottom: 10,
 
   },
   linkContainer: {
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     position:'absolute',
     width:300, 
-    height:1,
+    height:10,
     alignSelf:'center',
 
   },
@@ -321,12 +321,12 @@ const styles = StyleSheet.create({
     flex:1, 
     position: 'absolute',
 
-    left: 19,
-    right: 80,
-    top: 8,
-    bottom: 89,
+    left: 2,
+    right: 1,
+    top: 18,
+    bottom: 39,
 
-    alignItems: 'center',
+    alignItems: 'flex-start',
     textAlign: 'center',
 
     color:'#1F1815',
@@ -346,12 +346,12 @@ const styles = StyleSheet.create({
     flex:1, 
     position: 'absolute',
 
-    left: 40,
-    right: 8,
-    top: 8,
-    bottom: 89,
+    left: 2,
+    right: 1,
+    top: 18,
+    bottom: 29,
 
-    alignItems: 'center',
+    alignItems: 'flex-end',
     textAlign: 'center',
     justifyContent:'space-between',
 
