@@ -7,15 +7,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import LandingScreen from './screens/LandingScreen';
+import ScreenContainer from './screens/ScreenContainer';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react-native';
 
 
 const Stack = createStackNavigator();
-
-Amplify.configure(amplify);
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -53,15 +51,12 @@ function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <LandingScreen />
-      </View>
+      <ScreenContainer />
     );
   }
 }
 
-export default withAuthenticator(App);
+export default App;
 
 const styles = StyleSheet.create({
   container: {

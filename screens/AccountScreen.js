@@ -3,38 +3,49 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { withAuthenticator } from 'aws-amplify-react-native'
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+import { Auth } from 'aws-amplify';
 
-export default function AccountScreen() {
+Amplify.configure(awsconfig);
+
+async function signOut() {
+  try {
+    await Auth.signOut();
+  } catch (error) {
+    console.log('error signing out: ', error);
+  }
+}
+
+function AccountScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        icon="md-person-add"
-        label="Sign Up"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-      />
-
-      <OptionButton
-        icon="ios-log-in"
-        label="Log In"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-      />
-
-      <OptionButton
-        icon="ios-build"
-        label="Update Profile"
-        onPress={() => WebBrowser.openBrowserAsync('')}
-        isLastOption
-      />
-
-      <OptionButton
-        icon="ios-rocket"
-        label="Go to PetRescue"
-        onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
-        isLastOption
-      />
+      <View style={styles.contentContainer}>
+        <View style={styles.container}>
+          <Text style={styles.header}>Account Settings</Text>
+        </View>
+        <OptionButton
+          icon="ios-build"
+          label="Update Profile"
+          onPress={() => WebBrowser.openBrowserAsync('')} />
+        <OptionButton
+          icon="ios-rocket"
+          label="Go to PetRescue"
+          onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
+        />
+        <OptionButton
+          icon="ios-rocket"
+          label="Sign Out"
+          onPress={() => signOut()}
+          isLastOption
+        />
+      </View>
     </ScrollView>
   );
 }
+
+export default withAuthenticator(AccountScreen)
 
 function OptionButton({ icon, label, onPress, isLastOption }) {
   return (
@@ -57,10 +68,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   contentContainer: {
-    paddingTop: 15,
+    paddingTop: 50,
   },
   optionIconContainer: {
     marginRight: 12,
+  },
+  header: {
+    fontSize: 28,
+    lineHeight: 31,
+    letterSpacing: -0.015,
+    color: '#1F1815',
+    fontWeight: 'bold',
+
+    textAlign: 'center',
+    alignItems: 'center',
   },
   option: {
     backgroundColor: '#fdfdfd',
