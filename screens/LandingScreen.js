@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     
       backgroundColor: 'transparent',
       fontSize: 15,
-      color: '#fff',
+      color:'#42f55a',
   },
 
   linearGradient:{
