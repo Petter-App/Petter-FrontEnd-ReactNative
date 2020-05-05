@@ -3,17 +3,10 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LandingScreen from './screens/LandingScreen';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react-native';
-
-
-const Stack = createStackNavigator();
 
 Amplify.configure(amplify);
 
@@ -61,7 +54,7 @@ function App(props) {
   }
 }
 
-export default withAuthenticator(App);
+export default App;
 
 const styles = StyleSheet.create({
   container: {
