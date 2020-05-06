@@ -5,33 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import * as WebBrowser from 'expo-web-browser';
 import { Auth } from 'aws-amplify';
 
-export default function LandingScreen() {
-
-  const [loggedInUser, setLoggedInUser] = useState('');
-
-  async function SignIn() {
-    var username = '';
-    var password = '';
-    try {
-      console.log('login button press')
-      const user = await Auth.signIn(username, password).then((data) => {
-        setLoggedInUser(data.attributes.email);
-      })
-    } catch (error) {
-      console.log('error signing in', error);
-    }
-  }
-
-  async function SignOut() {
-    try {
-      console.log('logout button press')
-      await Auth.signOut().then((data) => {
-        setLoggedInUser('');
-      });
-    } catch (error) {
-      console.log('error signing out: ', error);
-    }
-  }
+export default function LandingScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
@@ -46,21 +20,7 @@ export default function LandingScreen() {
             <Text style={styles.linkText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
-        <View>
-          <Button
-            title="Sign In"
-            onPress={() => SignIn()}
-          />
-        </View>
-        <View>
-          <Button
-            title="Sign Out"
-            onPress={() => SignOut()}
-          />
-        </View>
-        <View>
-          <Text>{loggedInUser}</Text>
-        </View>
+
         <View style={styles.landingingscreen}>
           <Text style={styles.header}>noSpringChickens </Text>
         </View>
@@ -83,7 +43,8 @@ export default function LandingScreen() {
             colors={['#FF4D00', '#FF008A']}
             start={[20, 0.20]}
             style={styles.linearGradient}>
-            <Text style={styles.buttonText}>
+            <Text style={styles.buttonText}
+              onPress={() => navigation.navigate('Pets')}>
               Browse
           </Text>
           </LinearGradient>

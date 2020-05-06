@@ -4,9 +4,9 @@ import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import useLinking from './navigation/useLinking';
-import LandingScreen from './screens/LandingScreen';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
+import Navigation from './navigation/Navigation'
 
 Amplify.configure(amplify);
 
@@ -48,7 +48,7 @@ function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <LandingScreen />
+        <Navigation />
       </View>
     );
   }
