@@ -11,42 +11,31 @@ import Auth from 'aws-amplify'
 
 Amplify.configure(awsconfig);
 
-async function customSignOut() {
-  try {
-    await Auth.signOut();
-  } catch (error) {
-    console.log('error signing out: ', error);
-    console.log('authState')
-  }
-}
-
 function AccountScreen(props) {
 
   return (
-    <Authenticator usernameAttributes='email'>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.contentContainer}>
-          <View style={styles.container}>
-            <Text style={styles.header}>Account Settings</Text>
-          </View>
-          <OptionButton
-            icon="ios-build"
-            label="Update Profile"
-            onPress={() => WebBrowser.openBrowserAsync('')} />
-          <OptionButton
-            icon="ios-rocket"
-            label="Go to PetRescue"
-            onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
-          />
-          <OptionButton
-            icon="ios-rocket"
-            label="Sign Out"
-            onPress={() => customSignOut()}
-            isLastOption
-          />
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.contentContainer}>
+        <View style={styles.container}>
+          <Text style={styles.header}>Account Settings</Text>
         </View>
-      </ScrollView>
-    </Authenticator>
+        <OptionButton
+          icon="ios-build"
+          label="Update Profile"
+          onPress={() => WebBrowser.openBrowserAsync('')} />
+        <OptionButton
+          icon="ios-rocket"
+          label="Go to PetRescue"
+          onPress={() => WebBrowser.openBrowserAsync('https://www.petrescue.com.au/')}
+        />
+        <OptionButton
+          icon="ios-rocket"
+          label="Sign Out"
+          onPress={() => customSignOut()}
+          isLastOption
+        />
+      </View>
+    </ScrollView>
   );
 }
 

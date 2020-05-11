@@ -5,6 +5,7 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import useLinking from './navigation/useLinking';
 import ScreenContainer from './screens/ScreenContainer';
+import { AuthWrapper } from './screens/AuthWrapper';
 
 
 function App(props) {
@@ -42,7 +43,7 @@ function App(props) {
     return null;
   } else {
     return (
-      <ScreenContainer />
+      <AuthWrapper />
     );
   }
 };
