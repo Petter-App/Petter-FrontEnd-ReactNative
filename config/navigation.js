@@ -1,47 +1,55 @@
-import * as React from 'react';
+import React from 'react';
+import { Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import TabBarIcon from '../components/TabBarIcon';
-import PetScreen from '../screens/PetsScreen';
-import AccountScreen from '../screens/AccountScreen';
+
+import Pets from '../screens/Pets';
+import Account from '../screens/Account';
+import Loading from '../screens/Loading';
+import LandingScreen from '../screens/LandingScreen';
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+import { SignIn, SignUp } from 'aws-amplify-react';
+import Auth from 'aws-amplify'
+
+Amplify.configure(awsconfig);
+
+
+const AuthStack = createStackNavigator();
+const AuthStackScreen = () => (
+  <AuthStack.Navigator>
+    <AuthStack.Screen name="Landing" component={LandingScreen} />
+    <AuthStack.Screen name="SignIn" component={SignIn} />
+    <AuthStack.Screen name="SignUp" component={SignUp} />
+
+    {/* <authStack.Screen name="SignIn" component={SignIn} />
+    <authStack.Screen name="SignUp" component={SignUp} />
+    <authStack.Screen name="PublicPets" component={PublicPets} /> */}
+  </AuthStack.Navigator>
+);
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Account';
+const BottomTabScreen = () => (
+  <BottomTab.Navigator>
+    <BottomTab.Screen name="Pets" component={Pets} />
+    <BottomTab.Screen name="Account" component={Account} />
+  </BottomTab.Navigator>
+)
 
-export default function BottomTabNavigator({ navigation, route }) {
-  // Set the header title on the parent stack navigator depending on the
-  // currently active tab. Learn more in the documentation:
-  // https://reactnavigation.org/docs/en/screen-options-resolution.html
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+export default () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [authState, setAuthState] = React.useState(null);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(!isLoading);
+    }, 500);
+  }, []);
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
-      <BottomTab.Screen
-        name="Pets"
-        component={PetScreen}
-        options={{
-          title: 'Pets',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="dog" />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Account"
-        component={AccountScreen}
-        options={{
-          title: 'Account',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="account" />,
-        }}
-      />
-    </BottomTab.Navigator>
-  );
-}
-
-function getHeaderTitle(route) {
-  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
-
-  switch (routeName) {
-    case 'Pets':
-      return 'Look at some pets';
-    case 'Account':
-      return 'Play with your account';
-  }
-}
+    <NavigationContainer>
+      {isLoading ? <Loading /> : authState ? <AuthStackScreen /> : <BottomTabScreen />}
+    </NavigationContainer>
+  )
+};

@@ -1,17 +1,40 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Authenticator, SignIn } from "aws-amplify-react-native";
+import { Authenticator, SignIn, withAuthenticator } from "aws-amplify-react-native";
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { CustomSignIn } from './CustomSignIn';
 import Auth from 'aws-amplify'
 
 Amplify.configure(awsconfig);
 
-function AccountScreen(props) {
+
+function Account({ navigation }) {
+
+  signOutAlert = async () => {
+    await Alert.alert(
+      'Sign Out',
+      'Are you sure you want to sign out?',
+      [
+        { text: 'Cancel', onPress: () => console.log('Canceled'), style: 'cancel' },
+        // Calling signOut
+        { text: 'OK', onPress: () => signOut() },
+      ],
+      { cancelable: false }
+    )
+  }
+
+  signOut = async () => {
+    console.log('signout')
+    await Auth.Auth.signOut()
+      .then(() => {
+        console.log('Sign out complete')
+        navigation.navigate('Pets')
+      })
+      .catch(err => console.log('Error while signing out!', err))
+  }
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -31,7 +54,7 @@ function AccountScreen(props) {
         <OptionButton
           icon="ios-rocket"
           label="Sign Out"
-          onPress={() => customSignOut()}
+          onPress={() => signOutAlert()}
           isLastOption
         />
       </View>
@@ -39,7 +62,7 @@ function AccountScreen(props) {
   );
 }
 
-export default AccountScreen
+export default withAuthenticator(Account);
 
 function OptionButton({ icon, label, onPress, isLastOption }) {
   return (

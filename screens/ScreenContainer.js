@@ -12,9 +12,9 @@ import Auth from 'aws-amplify';
 
 Amplify.configure(awsconfig);
 
-import AccountScreen from './AccountScreen';
+import AccountScreen from './Account';
 import LandingScreen from './LandingScreen';
-import PetsScreen from './PetsScreen';
+import PetsScreen from './Pets';
 
 const Tab = createBottomTabNavigator();
 

@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } fro
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
-function PetsScreen() {
+export default function PetsPublic() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.contentContainer}>
@@ -17,7 +17,7 @@ function PetsScreen() {
           />
         </View>
         <View style={styles.petsPageBodyContainer}>
-          <Text style={styles.petsPageBodyText}>One day you will be able to swipe to see all the elderly pets</Text>
+          <Text style={styles.petsPageBodyText}>For the not logged in! One day you will be able to swipe to see all the elderly pets</Text>
         </View>
         <View style={styles.linkContainer}>
           <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
@@ -30,12 +30,6 @@ function PetsScreen() {
 
   );
 }
-
-export default PetsScreen;
-
-PetsScreen.navigationOptions = {
-  header: null,
-};
 
 
 function handleLinkPress() {

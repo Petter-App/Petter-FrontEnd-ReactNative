@@ -8,7 +8,7 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import { CustomSignIn } from './CustomSignIn';
 import Auth from 'aws-amplify'
-import { AccountScreen } from './AccountScreen';
+import { AccountScreen } from './Account';
 import { ScreenContainer } from './ScreenContainer';
 
 Amplify.configure(awsconfig);
