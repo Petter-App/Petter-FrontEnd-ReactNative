@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import { withAuthenticator } from 'aws-amplify-react-native';
 
-export default function Pets() {
+function Pets() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.contentContainer}>
@@ -30,6 +31,8 @@ export default function Pets() {
 
   );
 }
+
+export default withAuthenticator(Pets);
 
 
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Button, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as WebBrowser from 'expo-web-browser';
 
-export default function LandingScreen() {
+export default function LandingScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -31,6 +31,8 @@ export default function LandingScreen() {
               style={styles.petImage}
             />
           </View>
+          <Button title="Sign In/SignUp" onPress={() => navigation.push('SignIn')} />
+          <Button title="Go To Pets" onPress={() => navigation.push('BottomStack', { screen: 'BottomTab' })} />
           <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
           <Text style={styles.heading4}>Elton_john</Text>
         </View>

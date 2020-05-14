@@ -31,7 +31,7 @@ function Account({ navigation }) {
     await Auth.Auth.signOut()
       .then(() => {
         console.log('Sign out complete')
-        navigation.navigate('Pets')
+        navigation.navigate('AuthStack')
       })
       .catch(err => console.log('Error while signing out!', err))
   }
