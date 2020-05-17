@@ -1,36 +1,38 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Pets from '../screens/Pets';
 import Account from '../screens/Account';
 import Loading from '../screens/Loading';
-import PublicPets from '../screens/PublicPets';
-import LandingScreen from '../screens/LandingScreen';
+import PetsPublic from '../screens/PetsPublic';
+import LandingScreen2 from '../screens/LandingScreen2';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { AmplifyAuthenticator, AmplifySignIn, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
 import Auth from 'aws-amplify'
+import { Analytics } from 'aws-amplify'
+
 import ConfirmSignIn from '../screens/ConfirmSignIn';
 Amplify.configure(awsconfig);
+Analytics.configure({ disabled: true })
 
 
-const AuthStack = createStackNavigator();
-const AuthStackScreen = () => (
-  <AuthStack.Navigator>
-    <AuthStack.Screen name="Landing" component={LandingScreen} options={{
+const GuestStack = createStackNavigator();
+const GuestStackScreen = () => (
+  <GuestStack.Navigator>
+    <GuestStack.Screen name="Landing" component={LandingScreen2} options={{
       headerShown: false,
-      headerTitle: "back"
+      headerTitle: "Go Back"
     }} />
-    <AuthStack.Screen name="SignIn" component={ConfirmSignIn} />
-    <AuthStack.Screen name="PublicPets" component={PublicPets} options={{
-      headerShown: false
+    <GuestStack.Screen name="SignIn" component={ConfirmSignIn} />
+    <GuestStack.Screen name="PetsPublic" component={PetsPublic} options={{
+      headerShown: false,
+      headerTitle: "Go Back"
     }} />
-    <AuthStack.Screen name="BottomStack" component={BottomStackScreen} options={{
+    <GuestStack.Screen name="BottomStack" component={BottomStackScreen} options={{
       headerShown: false,
     }} />
-  </AuthStack.Navigator>
+  </GuestStack.Navigator>
 );
 
 const BottomStack = createStackNavigator();
@@ -39,7 +41,7 @@ const BottomStackScreen = () => (
     <BottomStack.Screen name="BottomTab" component={BottomTabScreen} options={{
       headerShown: false
     }} />
-    <BottomStack.Screen name="AuthStack" component={AuthStackScreen} options={{
+    <BottomStack.Screen name="GuestStack" component={GuestStackScreen} options={{
       headerShown: false
     }} />
   </BottomStack.Navigator>
@@ -53,13 +55,14 @@ const BottomTabScreen = () => (
   </BottomTab.Navigator>
 )
 
-export default () => {
+export default function Navigation() {
   const [isLoading, setIsLoading] = React.useState(true);
   const [authState, setAuthState] = React.useState('loading');
 
   React.useEffect(() => {
     try {
       const user = Auth.currentAuthenticatedUser()
+      console.log(user)
       setAuthState('authenticated')
     } catch (err) {
       setAuthState('unauthenticated')
@@ -75,7 +78,7 @@ export default () => {
 
   return (
     <NavigationContainer>
-      {isLoading ? <Loading /> : authState === 'authenticated' ? <BottomTabScreen /> : <AuthStackScreen />}
+      {isLoading ? <Loading /> : authState === 'authenticated' ? <BottomTabScreen /> : <GuestStackScreen />}
     </NavigationContainer>
   )
 };

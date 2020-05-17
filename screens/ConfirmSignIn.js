@@ -17,7 +17,7 @@ function ConfirmSignIn({ navigation }) {
             <View style={styles.contentContainer}>
 
                 <View style={styles.petsPageBodyContainer}>
-                    <Text style={styles.petsPageBodyText}>Thanks for signing up!</Text>
+                    <Text style={styles.petsPageBodyText}>You're good to go.</Text>
                     <Button title="Go look at some pets!" onPress={() => navigation.push('BottomStack', { screen: 'BottomTab' })} />
                 </View>
 

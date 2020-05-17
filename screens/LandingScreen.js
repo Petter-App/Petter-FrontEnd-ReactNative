@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { Image, Platform, StyleSheet, Button, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
+import { Analytics } from 'aws-amplify'
+
+Analytics.configure({ disabled: true })
+
+import { MonoText } from '../components/StyledText';
+
+
 
 export default function LandingScreen({ navigation }) {
   return (
@@ -31,18 +39,25 @@ export default function LandingScreen({ navigation }) {
               style={styles.petImage}
             />
           </View>
-          <Button title="Sign In/SignUp" onPress={() => navigation.push('SignIn')} />
-          <Button title="Go To Pets" onPress={() => navigation.push('BottomStack', { screen: 'BottomTab' })} />
           <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
           <Text style={styles.heading4}>Elton_john</Text>
         </View>
         <View style={styles.buttonContainer}>
+          <TouchableOpacity>
+            <LinearGradient
+              colors={['#FF4D00', '#FF008A']}
+              start={[20, 0.20]}
+              style={styles.linearGradient}>
+              <Text style={styles.buttonText}>
+                Browse
+                    </Text>
+            </LinearGradient>
+          </TouchableOpacity>
 
-          <Text
-            style={styles.buttonText}>
-            Browse
-          </Text>
-
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button title="Sign In/SignUp" onPress={() => navigation.push('SignIn')} />
+          <Button title="Go To Pets" onPress={() => navigation.push('PetsPublic')} />
         </View>
 
       </ScrollView>
@@ -61,6 +76,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
+
   },
   landingscreen: {
     alignSelf: 'stretch',
@@ -70,23 +88,22 @@ const styles = StyleSheet.create({
 
   header: {
 
-    flex: 2,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'stretch',
     alignSelf: 'center',
 
     position: 'absolute',
-    width: '355',
-    height: '223',
-    left: '6',
-    top: '111',
+    width: 355,
+    height: 323,
+    left: 26,
+    top: 80,
 
     paddingBottom: 10,
-    marginTop: 180,
+    marginTop: 150,
 
-    fontSize: 28,
-    lineHeight: 31,
+    fontSize: 38,
     letterSpacing: -0.015,
     color: '#1F1815',
     fontWeight: 'bold',
@@ -106,10 +123,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    width: '355',
-    height: '223',
-    left: '6',
-    top: '111',
+    width: 355,
+    height: 223,
+    left: 106,
+    top: 80,
     marginTop: 220,
 
 
@@ -129,6 +146,10 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
 
+    left: -24.4,
+    right: 20.27,
+    top: -55,
+    bottom: 24.63,
 
     marginTop: 380,
     marginLeft: 100,
@@ -142,7 +163,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     alignSelf: 'center',
-    marginTop: 80,
+    marginTop: 200,
   },
 
   heading4: {
@@ -161,10 +182,10 @@ const styles = StyleSheet.create({
 
 
     position: 'absolute',
-    left: '32.53%',
-    right: '49.6%',
-    top: '100.65%',
-    bottom: '23.15%',
+    left: 82.53,
+    right: 49.6,
+    top: 350,
+    bottom: 23.15,
 
     fontSize: 11,
     lineHeight: 13,
@@ -183,12 +204,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    marginTop: 50,
+    marginTop: 60,
     marginBottom: 20,
-    textAlign: 'center',
     marginLeft: 20,
     alignSelf: 'center',
-    left: '03%',
+    left: 3,
 
 
 
@@ -196,16 +216,15 @@ const styles = StyleSheet.create({
 
   petImage: {
 
-    left: '-6.71%',
-    right: '100%',
-    top: '-25.71%',
-    bottom: '125%',
+    left: -20.71,
+    right: 80,
+    top: -25.71,
+    bottom: 125,
 
-    marginTop: 300,
+    marginTop: 250,
     width: 70,
     height: 70,
     borderRadius: 70 / 2,
-    textAlign: 'center',
 
   },
 
@@ -240,7 +259,7 @@ const styles = StyleSheet.create({
     }),
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
+    paddingVertical: '0',
   },
   tabBarInfoText: {
     fontSize: 17,
@@ -258,11 +277,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
 
-    left: '14.53%',
-    right: '20.27%',
-    top: '105.51%',
-    bottom: '11.58%',
-
+    left: 14.53,
+    right: 20.27,
+    top: 82.51,
+    bottom: 11.58,
 
 
   },
@@ -270,12 +288,13 @@ const styles = StyleSheet.create({
   buttonText: {
 
     backgroundColor: 'transparent',
-    fontSize: 15,
-    color: '#fff',
+    fontSize: 16,
+    color: '#42f55a',
   },
 
   linearGradient: {
-    padding: 15,
+
+    padding: 10,
     alignItems: 'center',
     borderRadius: 5,
     position: 'relative',
@@ -289,9 +308,9 @@ const styles = StyleSheet.create({
     top: 0,
 
 
-    marginTop: 180,
+    marginTop: 580,
     paddingBottom: 10,
-    marginBottom: 40,
+    marginBottom: 10,
 
   },
   linkContainer: {
@@ -303,7 +322,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'absolute',
     width: 300,
-    height: 1,
+    height: 10,
     alignSelf: 'center',
 
   },
@@ -313,12 +332,12 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'absolute',
 
-    left: '9.33%',
-    right: '80%',
-    top: '8.62%',
-    bottom: '89.53%',
+    left: 2,
+    right: 1,
+    top: 18,
+    bottom: 39,
 
-    alignItems: 'center',
+    alignItems: 'flex-start',
     textAlign: 'center',
 
     color: '#1F1815',
@@ -328,6 +347,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
 
     letterSpacing: 0.04,
+    justifyContent: 'space-between',
 
 
   },
@@ -337,12 +357,14 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'absolute',
 
-    left: '74.67%',
-    right: '8%',
-    top: '8.62%',
-    bottom: '89.53%',
+    left: 2,
+    right: 1,
+    top: 18,
+    bottom: 29,
 
-    alignItems: 'center',
+    alignItems: 'flex-end',
     textAlign: 'center',
+    justifyContent: 'space-between',
+
   }
 });

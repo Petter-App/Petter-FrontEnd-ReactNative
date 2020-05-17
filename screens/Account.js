@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Authenticator, SignIn, withAuthenticator } from "aws-amplify-react-native";
+import { withAuthenticator } from "aws-amplify-react-native";
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import Auth from 'aws-amplify'
@@ -31,7 +31,7 @@ function Account({ navigation }) {
     await Auth.Auth.signOut()
       .then(() => {
         console.log('Sign out complete')
-        navigation.navigate('AuthStack')
+        navigation.navigate('GuestStack')
       })
       .catch(err => console.log('Error while signing out!', err))
   }

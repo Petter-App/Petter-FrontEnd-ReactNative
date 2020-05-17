@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } fro
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
-export default function PetsPublic() {
+export default function PetsPublic({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.contentContainer}>
@@ -23,6 +23,7 @@ export default function PetsPublic() {
           <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
             <Text style={styles.linkText}>Click here for fun times</Text>
           </TouchableOpacity>
+          <Button title="Click Here to Sign Up" onPress={() => navigation.push('SignIn')}></Button>
         </View>
       </View >
     </ScrollView>

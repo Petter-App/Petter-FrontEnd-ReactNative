@@ -3,6 +3,9 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } fro
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 import { withAuthenticator } from 'aws-amplify-react-native';
+import { Analytics } from 'aws-amplify'
+
+Analytics.configure({ disabled: true })
 
 function Pets() {
   return (
