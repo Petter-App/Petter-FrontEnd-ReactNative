@@ -4,7 +4,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
-
 import { MonoText } from '../components/StyledText';
 
 
@@ -23,10 +22,10 @@ export default function LandingScreen() {
             <Text style={styles.linkText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
-      <View style={styles.landingingscreen}>
+      <View style={styles.headerContainer}>
       <Text style={styles.header}>noSpringChickens </Text>
       </View>
-      <View style={styles.landingingscreen}>
+      <View style={styles.heading2Container}>
       <Text style={styles.heading2}>match.adopt.chill.</Text>
       </View>
       <View style={styles.footerContainer}>
@@ -36,8 +35,12 @@ export default function LandingScreen() {
             style={styles.petImage}
           />
         </View>
+        <View style={styles.heading3Container}>
       <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
+      </View>
+      <View style={styles.heading4Container}>
       <Text style={styles.heading4}>Elton_john</Text>
+      </View>
       </View>
       <View style={styles.buttonContainer}>
 
@@ -66,15 +69,23 @@ Browse
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
-    backgroundColor: '#fff',
-    width:'100%',
-    height:'100%',
-  
+    backgroundColor: '#fff', 
+
+
   },
   landingscreen: {
     alignSelf:'stretch',
     justifyContent:'center'
+
+
+  },
+
+  headerContainer:{
+
+    width:'100%',
+    height:'30%',
 
   },
 
@@ -87,10 +98,9 @@ const styles = StyleSheet.create({
     alignSelf:'center',
 
     position: 'absolute',
-    width: 355,
-    height: 323,
-    left: 26,
-    top: 80,
+
+    left: 34,
+    top: 100,
 
     paddingBottom: 10,
     marginTop:150,
@@ -104,6 +114,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  heading2Container:{
+    width:'100%',
+    height:'40%',
+
+  },
+
   heading2: {
 
     flex: 2,
@@ -114,12 +130,9 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     position: 'absolute',
 
-
-    width: 355,
-    height: 223,
     left:106,
     top: 80,
-    marginTop:220,
+    marginTop:20,
 
 
     fontSize: 24,
@@ -130,6 +143,11 @@ const styles = StyleSheet.create({
     letterSpacing: -0.015,
   },
 
+  heading3Container:{
+    width:'100%',
+    height:'100%',
+  },
+
   heading3: {
 
     flex:1,
@@ -138,14 +156,12 @@ const styles = StyleSheet.create({
     alignItems:'stretch',
     justifyContent:'center',
 
-    left: -24.4,
+    left: 30.4,
     right: 20.27,
-    top:-55,
-    bottom: 24.63,
+    top:85,
 
-    marginTop: 380,
-    marginLeft: 100,
-    height: 100,
+    marginTop: 0.2,
+    marginLeft: 89,
     
   },
 
@@ -155,7 +171,15 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     textAlign:'center',
     alignSelf:'center',
-    marginTop:200,
+    marginTop:0,
+    width:'100%',
+    height:'100%',
+  },
+
+  heading4Container:{
+    width:'50%',
+    height:'50%',
+
   },
 
   heading4: {
@@ -169,14 +193,11 @@ const styles = StyleSheet.create({
 
 
     alignItems: 'center',
-    height: 100,
-    width: 80, 
 
 
     position:'absolute',
-    left: 82.53,
-    right: 49.6,
-    top: 350,
+    left: 122.53,
+    top: -120,
     bottom: 23.15,
 
     fontSize: 11,
@@ -187,7 +208,12 @@ const styles = StyleSheet.create({
   },
 
   contentContainer: {
+    flex:1,
     paddingTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: ( Platform.OS === 'ios' ) ? 20 : 0
+    
   },
 
   petImageContainer: {
@@ -196,9 +222,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    marginTop: 60,
-    marginBottom: 20,
-    marginLeft:20,
+  
+    marginLeft:10,
     alignSelf:'center',
     left:3,
 
@@ -208,10 +233,9 @@ const styles = StyleSheet.create({
 
   petImage: {
 
-    left: -20.71,
+    left: 30,
     right: 80,
-    top: -25.71,
-    bottom: 125,
+    bottom: 200,
 
     marginTop: 250,
     width: 70,
@@ -269,10 +293,9 @@ const styles = StyleSheet.create({
     position:'absolute',
     alignSelf:'center',
 
-    left: 14.53,
-    right: 20.27,
-    top: 82.51,
-    bottom: 11.58,
+
+    width:'100%',
+    height:'80%',
     
 
   },
@@ -313,8 +336,8 @@ const styles = StyleSheet.create({
     alignContent:'center',
     justifyContent:'space-between',
     position:'absolute',
-    width:300, 
-    height:10,
+    width:'80%', 
+    height:'85%',
     alignSelf:'center',
 
   },
