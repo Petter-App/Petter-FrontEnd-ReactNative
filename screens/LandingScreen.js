@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';import { LinearGradient } from 'expo-linear-gradient';
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
 import { MonoText } from '../components/StyledText';
 
 
 
+const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
+
+
 export default function LandingScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <ImageBackground source={image} style={styles.image}>
+
       <View style={styles.linkContainer}>
           <TouchableOpacity onPress={handleLinkPress} style={styles.login}>
             <Text style={styles.linkText}>LOGIN</Text>
@@ -55,6 +59,8 @@ Browse
 
 </View>
 
+</ImageBackground>
+
       </ScrollView>
 </View>
     );
@@ -75,6 +81,17 @@ const styles = StyleSheet.create({
 
 
   },
+
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    width: '100%', 
+    height: '100%',
+
+  },
+ 
+
   landingscreen: {
     alignSelf:'stretch',
     justifyContent:'center'
@@ -304,7 +321,7 @@ const styles = StyleSheet.create({
     
       backgroundColor: 'transparent',
       fontSize: 16,
-      color:'#42f55a',
+      color:'#FF008A'
   },
 
   linearGradient:{
@@ -328,6 +345,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
 
   },
+
   linkContainer: {
     flex:1,
     flexDirection:'row',
@@ -381,5 +399,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent:'space-between',
 
-  }
+  },
+
 });

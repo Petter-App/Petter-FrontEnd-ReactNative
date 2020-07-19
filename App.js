@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LandingScreen from './screens/LandingScreen';
+import PublicBrowse from './screens/PetsScreen';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react-native';
