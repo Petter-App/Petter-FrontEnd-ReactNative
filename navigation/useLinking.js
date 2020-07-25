@@ -11,6 +11,7 @@ export default function (containerRef) {
           Pets: 'pets',
           Account: 'account',
           Settings: 'settings',
+          PublicBrowse: 'PublicBrowse'
         },
       },
     },

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';import { LinearGradient } from 'expo-linear-gradient';
+import { Image, Button,ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
 import { MonoText } from '../components/StyledText';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import PublicBrowse from './PublicBrowse';
 
 
 
 const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
+
+
+
 
 
 export default function LandingScreen() {
@@ -46,15 +53,22 @@ export default function LandingScreen() {
       <Text style={styles.heading4}>Elton_john</Text>
       </View>
       </View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Public </Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('PublicBrowse')}
+      />
+    </View>
       <View style={styles.buttonContainer}>
 
       <LinearGradient
            colors={['#FF4D00','#FF008A']}
            start={[20, 0.20]}
           style={styles.linearGradient}>
-          <Text style={styles.buttonText}>
+          { <Text style={styles.buttonText}>
 Browse
-          </Text>
+          </Text>}
 </LinearGradient>
 
 </View>
@@ -71,6 +85,8 @@ Browse
       'https://app.slack.com/client/T9QRX4NTA/GS94VLX4H/details'
     );
   }
+
+
 
 
 const styles = StyleSheet.create({
@@ -321,7 +337,7 @@ const styles = StyleSheet.create({
     
       backgroundColor: 'transparent',
       fontSize: 16,
-      color:'#FF008A'
+      color:'#FFFFFF',
   },
 
   linearGradient:{

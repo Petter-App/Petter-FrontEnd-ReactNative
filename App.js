@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LandingScreen from './screens/LandingScreen';
-import PublicBrowse from './screens/PetsScreen';
+import PublicBrowse from './screens/PublicBrowse';
 import Amplify from 'aws-amplify';
 import amplify from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react-native';
@@ -50,6 +50,7 @@ function App(props) {
     loadResourcesAndDataAsync();
   }, []);
 
+
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
@@ -57,10 +58,27 @@ function App(props) {
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <LandingScreen />
+        <PublicBrowse />
       </View>
+
+
     );
+    
   }
 }
+
+
+
+
+
+//     <NavigationContainer>
+//       <Stack.Navigator initialRouteName="LandingScreen">
+//         <Stack.Screen name="LandingScreen" component={LandingScreen} />
+//         <Stack.Screen name="PublicBrowse" component={PublicBrowse} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+
+
 
 export default withAuthenticator(App);
 

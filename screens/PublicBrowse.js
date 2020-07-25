@@ -1,8 +1,10 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Swiper from "react-native-web-swiper";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default class HomeScreen extends React.Component {
+export default class PublicBrowse extends React.Component {
     render() {
         return (
           <View style={{flex:1}}>
@@ -63,3 +65,5 @@ export default class HomeScreen extends React.Component {
         )
     }
 }
+
+

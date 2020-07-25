@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import PetScreen from '../screens/PetsScreen';
 import AccountScreen from '../screens/AccountScreen';
+import PublicBrowse from '../screens/PublicBrowse';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Account';
@@ -31,6 +32,14 @@ export default function BottomTabNavigator({ navigation, route }) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="account" />,
         }}
       />
+            <BottomTab.Screen
+        name="PublicBrowse"
+        component={PublicBrowse}
+        options={{
+          title: 'PublicBrowse',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="PublicBrowse" />,
+        }}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -45,3 +54,5 @@ function getHeaderTitle(route) {
       return 'Play with your account';
   }
 }
+
+
