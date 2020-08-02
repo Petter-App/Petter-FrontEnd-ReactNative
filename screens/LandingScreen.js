@@ -59,9 +59,9 @@ export default function LandingScreen({ navigation }) {
           <Button title="Sign In/SignUp" onPress={() => navigation.push('SignIn')} />
           <Button title="Go To Pets" onPress={() => navigation.push('PetsPublic')} />
         </View>
-
-      </ScrollView>
+        </ScrollView>
     </View>
+ 
   );
 }
 
@@ -74,6 +74,7 @@ function handleLinkPress() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#fff',
     width: '100%',
@@ -83,6 +84,14 @@ const styles = StyleSheet.create({
   landingscreen: {
     alignSelf: 'stretch',
     justifyContent: 'center'
+
+
+  },
+
+  headerContainer:{
+
+    width:'100%',
+    height:'30%',
 
   },
 
@@ -108,8 +117,15 @@ const styles = StyleSheet.create({
     color: '#1F1815',
     fontWeight: 'bold',
 
+
     textAlign: 'center',
     alignItems: 'center',
+  },
+
+  heading2Container:{
+    width:'100%',
+    height:'40%',
+
   },
 
   heading2: {
@@ -138,6 +154,11 @@ const styles = StyleSheet.create({
     letterSpacing: -0.015,
   },
 
+  heading3Container:{
+    width:'100%',
+    height:'100%',
+  },
+
   heading3: {
 
     flex: 1,
@@ -164,19 +185,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'center',
     marginTop: 200,
-  },
 
-  heading4: {
-
-    flex: 1,
-    color: '#000000',
-
-
-    justifyContent: 'center',
-    alignSelf: 'center',
-
-
-    alignItems: 'center',
     height: 100,
     width: 80,
 
@@ -185,17 +194,17 @@ const styles = StyleSheet.create({
     left: 82.53,
     right: 49.6,
     top: 350,
-    bottom: 23.15,
-
-    fontSize: 11,
-    lineHeight: 13,
-    fontWeight: 'bold',
 
 
   },
 
   contentContainer: {
+    flex:1,
     paddingTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: ( Platform.OS === 'ios' ) ? 20 : 0
+    
   },
 
   petImageContainer: {
@@ -212,6 +221,7 @@ const styles = StyleSheet.create({
 
 
 
+
   },
 
   petImage: {
@@ -220,6 +230,7 @@ const styles = StyleSheet.create({
     right: 80,
     top: -25.71,
     bottom: 125,
+
 
     marginTop: 250,
     width: 70,
