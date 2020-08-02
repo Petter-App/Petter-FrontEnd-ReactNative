@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
-import { MonoText } from '../components/StyledText';
-
-export default function PetsScreen() {
+export default function PetsPublic({ navigation }) {
   return (
-    <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.contentContainer}>
+        <View style={styles.container}>
+          <Text style={styles.header}>Pets</Text>
+        </View>
         <View style={styles.petImageContainer}>
           <Image
             source={require('../assets/images/dog.jpg')}
@@ -16,22 +17,20 @@ export default function PetsScreen() {
           />
         </View>
         <View style={styles.petsPageBodyContainer}>
-          <Text style={styles.petsPageBodyText}>One day you will be able to swipe to see all the elderly pets</Text>
+          <Text style={styles.petsPageBodyText}>For the not logged in! One day you will be able to swipe to see all the elderly pets</Text>
         </View>
         <View style={styles.linkContainer}>
           <TouchableOpacity onPress={handleLinkPress} style={styles.Link}>
             <Text style={styles.linkText}>Click here for fun times</Text>
           </TouchableOpacity>
+          <Button title="Click Here to Sign Up" onPress={() => navigation.push('SignIn')}></Button>
         </View>
-      </ScrollView>
+      </View >
+    </ScrollView>
 
-    </View>
+
   );
 }
-
-PetsScreen.navigationOptions = {
-  header: null,
-};
 
 
 function handleLinkPress() {
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 50,
   },
   petImageContainer: {
     alignItems: 'center',
@@ -111,5 +110,15 @@ const styles = StyleSheet.create({
   LinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  header: {
+    fontSize: 28,
+    lineHeight: 31,
+    letterSpacing: -0.015,
+    color: '#1F1815',
+    fontWeight: 'bold',
+
+    textAlign: 'center',
+    alignItems: 'center',
   },
 });
