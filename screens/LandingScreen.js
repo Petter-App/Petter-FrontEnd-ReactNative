@@ -27,7 +27,7 @@ export default function LandingScreen({ navigation }) {
           </TouchableOpacity>
         </View> */}
         <View style={styles.landingingscreen}>
-          <Text style={styles.header}>noSpringChickens </Text>
+          <Text style={styles.header}>noSpringChickensx</Text>
         </View>
         <View style={styles.landingingscreen}>
           <Text style={styles.heading2}>match.adopt.chill.</Text>
@@ -213,10 +213,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
 
 
-    marginTop: 60,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 10,
     marginLeft: 20,
-    alignSelf: 'center',
     left: 3,
 
 
@@ -226,10 +225,10 @@ const styles = StyleSheet.create({
 
   petImage: {
 
-    left: -20.71,
-    right: 80,
-    top: -25.71,
-    bottom: 125,
+    left: 20.71,
+    right: 0,
+    top: 25.71,
+    bottom: 25,
 
 
     marginTop: 250,
