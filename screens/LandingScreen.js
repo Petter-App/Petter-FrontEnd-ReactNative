@@ -16,7 +16,7 @@ export default function LandingScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.linkContainer}>
+        {/* <View style={styles.linkContainer}>
           <TouchableOpacity onPress={handleLinkPress} style={styles.login}>
             <Text style={styles.linkText}>LOGIN</Text>
           </TouchableOpacity>
@@ -25,7 +25,7 @@ export default function LandingScreen({ navigation }) {
           <TouchableOpacity onPress={handleLinkPress} style={styles.register}>
             <Text style={styles.linkText}>REGISTER</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={styles.landingingscreen}>
           <Text style={styles.header}>noSpringChickens </Text>
         </View>

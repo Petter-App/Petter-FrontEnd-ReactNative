@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { Image, ImageBackground,Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
@@ -7,17 +7,32 @@ import { Analytics } from 'aws-amplify'
 
 Analytics.configure({ disabled: true })
 
+
+const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
+
+
 import { MonoText } from '../components/StyledText';
 import { getOrientationAsync } from 'expo/build/ScreenOrientation/ScreenOrientation';
 
 export default function LandingScreen2({ navigation }) {
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.title}>noSpringChickens</Text>
+        <ImageBackground source={image} style={styles.image}>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity style={styles.login}>
+            <Text style={styles.linkText}>LOGIN</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.linkContainer}>
+          <TouchableOpacity  style={styles.register}>
+            <Text style={styles.linkText}>REGISTER</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.headerContainer}>
+      <Text style={styles.header}>noSpringChickens </Text>
       </View>
-      <View style={styles.subTitle}>
-        <Text style={styles.subTitle}>match.adopt.chill.</Text>
+      <View style={styles.heading2Container}>
+      <Text style={styles.heading2}>match.adopt.chill.</Text>
       </View>
       <View style={styles.tagline}>
         <View style={styles.petImage}>
@@ -26,8 +41,12 @@ export default function LandingScreen2({ navigation }) {
             style={styles.petImage}
           />
         </View>
-        <Text style={styles.taglineText}>"No exercise, cuddles please!"</Text>
-        <Text style={styles.taglineText}>Elton_john</Text>
+        <View style={styles.heading3Container}>
+      <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
+      </View>        
+      <View style={styles.heading4Container}>
+      <Text style={styles.heading4}>Elton_john</Text>
+      </View>
       </View>
       <View style={styles.links}>
         <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
@@ -35,13 +54,17 @@ export default function LandingScreen2({ navigation }) {
             <Text style={styles.buttonText}>Browse Pets</Text>
           </LinearGradient>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
+        {/* <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
           <LinearGradient colors={['#FF4D00', '#FF008A']} start={[20, 0.20]} style={styles.linearGradient}>
             <Text style={styles.buttonText}>Sign Up/Sign In</Text>
           </LinearGradient>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
       </View>
+      </ImageBackground>
+
     </View>
+
   );
 }
 
@@ -51,20 +74,19 @@ const viewPadding = '5%'
 const styles = StyleSheet.create(
   {
     container: {
+
       flex: 1,
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: '#fff',
-      width: '100%',
-      height: '100%',
+      backgroundColor: '#fff', 
+  
+  
     },
     title: {
       fontSize: 38,
       letterSpacing: -0.015,
       color: '#1F1815',
       fontWeight: 'bold',
-      padding: viewPadding
+      padding: viewPadding,
+      marginTop:45,
     },
     subTitle: {
       fontSize: 24,
@@ -106,5 +128,373 @@ const styles = StyleSheet.create(
       margin: 10,
       color: '#ffffff',
       backgroundColor: 'transparent',
-    }
+    },
+    linkContainer: {
+      flex:1,
+      flexDirection:'row',
+      marginTop: 5,
+      alignItems: 'center',
+      alignContent:'center',
+      justifyContent:'space-between',
+      position:'absolute',
+      width:'80%', 
+      height:'85%',
+      alignSelf:'center',
+  
+    },
+  
+    login:{
+  
+      flex:1, 
+      position: 'absolute',
+  
+      left: 2,
+      right: 1,
+      top: 18,
+      bottom: 39,
+  
+      alignItems: 'flex-start',
+      textAlign: 'center',
+  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
+      fontSize: 13,
+      lineHeight: 15,
+  
+      letterSpacing: 0.04,
+      justifyContent:'space-between',
+  
+      
+    },
+    
+      register:{
+  
+      flex:1, 
+      position: 'absolute',
+  
+      left: 2,
+      right: 1,
+      top: 18,
+      bottom: 29,
+  
+      alignItems: 'flex-end',
+      textAlign: 'center',
+      justifyContent:'space-between',
+  
+    },
+  
+    image: {
+      flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"
+    },
+
+    landingscreen: {
+      alignSelf:'stretch',
+      justifyContent:'center'
+  
+  
+    },
+  
+    headerContainer:{
+  
+      width:'100%',
+      height:'30%',
+  
+    },
+
+    header: {
+
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      alignSelf:'center',
+  
+      position: 'absolute',
+  
+      left: 34,
+      top: 100,
+  
+      paddingBottom: 10,
+      marginTop:150,
+  
+      fontSize: 38,
+      letterSpacing: -0.015,  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
+      textAlign: 'center',
+      alignItems: 'center',
+    },
+  
+    heading2Container:{
+      width:'100%',
+  
+    },
+    heading2: {
+
+      flex: 2,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      
+      alignSelf:'center',
+      position: 'absolute',
+  
+      left:106,
+      top: 80,
+      marginTop:20,
+  
+  
+      fontSize: 24,
+      lineHeight: 27,
+  
+      color:'#000000',
+  
+      letterSpacing: -0.015,
+    },
+  
+    heading3Container:{
+      width:'100%',
+      height:'100%',
+    },
+  
+    heading3: {
+  
+      flex:1,
+      fontSize:13, 
+      color:'#000000',
+      alignItems:'stretch',
+      justifyContent:'center',
+  
+      left: 30.4,
+      right: 20.27,
+      top:85,
+  
+      marginTop: 0.2,
+      marginLeft: 89,
+      
+    },
+  
+    footerContainer:{
+      flex:1,
+      flexDirection:'column',
+      justifyContent:'center',
+      textAlign:'center',
+      alignSelf:'center',
+      marginTop:0,
+      width:'100%',
+      height:'100%',
+    },
+  
+    heading4Container:{
+      width:'50%',
+      height:'50%',
+  
+    },
+    
+    heading4: {
+
+      flex:1,
+      color:'#000000',
+  
+  
+      justifyContent: 'center',
+      alignSelf:'center',
+  
+  
+      alignItems: 'center',
+  
+  
+      position:'absolute',
+      left: 122.53,
+      top: -120,
+      bottom: 23.15,
+  
+      fontSize: 11,
+      lineHeight: 13,
+      fontWeight: 'bold',
+  
+  
+    },
+  
+  
+    contentContainer: {
+      flex:1,
+      paddingTop: 30,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingTop: ( Platform.OS === 'ios' ) ? 20 : 0
+      
+    },
+  
+    petImageContainer: {
+  
+      flex:1,
+      position: 'absolute',
+  
+  
+    
+      marginLeft:10,
+      alignSelf:'center',
+      left:3,
+  
+  
+      
+    },
+  
+    petImage: {
+  
+      left: 30,
+      right: 80,
+      bottom: 200,
+  
+      marginTop: 250,
+      width: 70,
+      height: 70,
+      borderRadius: 70 / 2,
+  
+    },
+  
+    petsPageBodyContainer: {
+      alignItems: 'center',
+      marginHorizontal: 50,
+    },
+    petScreenFilename: {
+      marginVertical: 7,
+    },
+    petsPageBodyText: {
+      fontSize: 17,
+      color: 'rgba(96,100,109, 1)',
+      lineHeight: 24,
+      textAlign: 'center',
+    },
+
+    tabBarInfoContainer: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { width: 0, height: -3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+      alignItems: 'center',
+      backgroundColor: '#fbfbfb',
+      paddingVertical: '0',
+    },
+    tabBarInfoText: {
+      fontSize: 17,
+      color: 'rgba(96,100,109, 1)',
+      textAlign: 'center',
+    },
+    buttonContainer:{
+  
+      flex:1,
+      flexDirection:'row',
+      alignItems: 'stretch',
+      justifyContent:'center',
+      position:'absolute',
+      alignSelf:'center',
+  
+  
+      width:'100%',
+      height:'80%',
+      
+  
+    },
+  
+    buttonText:{
+      
+        backgroundColor: 'transparent',
+        fontSize: 16,
+        color:'#FFFFFF',
+    },
+  
+    linearGradient:{
+  
+      padding: 10,
+      alignItems: 'center', 
+      borderRadius: 5,
+      position: 'relative',
+      alignSelf:'center',
+  
+  
+      width: 157,
+  
+      left: 10,
+      right: 0,
+      top: 0,
+  
+  
+      paddingBottom: 10,
+      marginBottom: 10,
+  
+    },
+  
+    linkContainer: {
+      flex:1,
+      flexDirection:'row',
+      marginTop: 5,
+      alignItems: 'center',
+      alignContent:'center',
+      justifyContent:'space-between',
+      position:'absolute',
+      width:'80%', 
+      height:'85%',
+      alignSelf:'center',
+  
+    },
+
+    login:{
+
+      flex:1, 
+      position: 'absolute',
+  
+      left: 2,
+      right: 1,
+      top: 18,
+      bottom: 39,
+  
+      alignItems: 'flex-start',
+      textAlign: 'center',
+  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
+      fontSize: 13,
+      lineHeight: 15,
+  
+      letterSpacing: 0.04,
+      justifyContent:'space-between',
+  
+      
+    },
+    
+      register:{
+  
+      flex:1, 
+      position: 'absolute',
+  
+      left: 2,
+      right: 1,
+      top: 18,
+      bottom: 29,
+  
+      alignItems: 'flex-end',
+      textAlign: 'center',
+      justifyContent:'space-between',
+  
+    },
+  
+    
   });

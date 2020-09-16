@@ -2,6 +2,8 @@ import React from "react";
 import { SignIn } from "aws-amplify-react";
 import { ScrollView } from 'react-native-gesture-handler';
 import { StyleSheet, Text, Button, View } from 'react-native';
+import {Platform} from 'react-native';
+
 
 import { withAuthenticator } from 'aws-amplify-react-native';
 import Amplify from 'aws-amplify';
@@ -58,12 +60,14 @@ const styles = StyleSheet.create({
     petScreenFilename: {
         marginVertical: 7,
     },
+
     petsPageBodyText: {
         fontSize: 17,
         color: 'rgba(96,100,109, 1)',
         lineHeight: 24,
         textAlign: 'center',
     },
+
     tabBarInfoContainer: {
         position: 'absolute',
         bottom: 0,
