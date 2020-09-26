@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, ImageBackground,Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import { Row } from 'native-base';
 import * as WebBrowser from 'expo-web-browser';
 import { Analytics } from 'aws-amplify'
@@ -29,7 +29,10 @@ export default function LandingScreen2({ navigation }) {
           </TouchableOpacity>
         </View>
         <View style={styles.headerContainer}>
-      <Text style={styles.header}>noSpringChickens </Text>
+      <Text style={styles.header}>noSpringChickensx</Text>
+      </View>
+      <View style={styles.heading10Container}>
+      <Text style={styles.heading10}>Elton_John</Text>
       </View>
       <View style={styles.heading2Container}>
       <Text style={styles.heading2}>match.adopt.chill.</Text>
@@ -44,16 +47,15 @@ export default function LandingScreen2({ navigation }) {
         <View style={styles.heading3Container}>
       <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
       </View>        
-      <View style={styles.heading4Container}>
-      <Text style={styles.heading4}>Elton_john</Text>
-      </View>
       </View>
       <View style={styles.links}>
+      <LinearGradient colors={['#FDB0C0,50%', '#FF008A, 80%']} start={[0.1, 0.1]} style={styles.linearGradient}>
+
         <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
-          <LinearGradient colors={['#FF4D00', '#FF008A']} start={[20, 0.20]} style={styles.linearGradient}>
-            <Text style={styles.buttonText}>Browse Pets</Text>
-          </LinearGradient>
+            <Text style={styles.buttonText}>Browse</Text>
         </TouchableOpacity>
+        </LinearGradient>
+
         {/* <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
           <LinearGradient colors={['#FF4D00', '#FF008A']} start={[20, 0.20]} style={styles.linearGradient}>
             <Text style={styles.buttonText}>Sign Up/Sign In</Text>
@@ -103,44 +105,13 @@ const styles = StyleSheet.create(
       color: '#000000',
       letterSpacing: -0.015,
     },
-    petImage: {
-      width: 70,
-      height: 70,
-      borderRadius: 70 / 2
-    },
+
     links: {
       alignItems: "center",
       padding: viewPadding
     },
     linearButton: {
       padding: viewPadding
-    },
-    linearGradient: {
-      paddingLeft: 15,
-      paddingRight: 15,
-      borderRadius: 5,
-      width: 200,
-      height: 50
-    },
-    buttonText: {
-      fontSize: 18,
-      textAlign: 'center',
-      margin: 10,
-      color: '#ffffff',
-      backgroundColor: 'transparent',
-    },
-    linkContainer: {
-      flex:1,
-      flexDirection:'row',
-      marginTop: 5,
-      alignItems: 'center',
-      alignContent:'center',
-      justifyContent:'space-between',
-      position:'absolute',
-      width:'80%', 
-      height:'85%',
-      alignSelf:'center',
-  
     },
   
     login:{
@@ -215,7 +186,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
   
       left: 34,
-      top: 100,
+      top: 128,
   
       paddingBottom: 10,
       marginTop:150,
@@ -256,6 +227,35 @@ const styles = StyleSheet.create(
       letterSpacing: -0.015,
     },
   
+
+    heading10Container:{
+      width:'100%',
+  
+    },
+    heading10: {
+
+      flex: 2,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      
+      alignSelf:'center',
+      position: 'absolute',
+  
+      left:126,
+      top: 330,
+      marginTop:20,
+  
+  
+      fontSize:13, 
+      lineHeight: 27,
+  
+      color:'#000000',
+  
+      letterSpacing: -0.015,
+    },
+  
+
     heading3Container:{
       width:'100%',
       height:'100%',
@@ -269,9 +269,8 @@ const styles = StyleSheet.create(
       alignItems:'stretch',
       justifyContent:'center',
   
-      left: 30.4,
-      right: 20.27,
-      top:85,
+      left: -55.4,
+      top:315,
   
       marginTop: 0.2,
       marginLeft: 89,
@@ -290,33 +289,38 @@ const styles = StyleSheet.create(
     },
   
     heading4Container:{
-      width:'50%',
-      height:'50%',
+      width:'100%',
+      height:'100%',
   
     },
     
     heading4: {
 
       flex:1,
+  
+      position: 'absolute',
+ 
+      
+
+      flex: 2,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      
+      alignSelf:'center',
+      position: 'absolute',
+  
+      left:106,
+      top: 80,
+      marginTop:20,
+  
+  
+      fontSize: 24,
+      lineHeight: 27,
+  
       color:'#000000',
   
-  
-      justifyContent: 'center',
-      alignSelf:'center',
-  
-  
-      alignItems: 'center',
-  
-  
-      position:'absolute',
-      left: 122.53,
-      top: -120,
-      bottom: 23.15,
-  
-      fontSize: 11,
-      lineHeight: 13,
-      fontWeight: 'bold',
-  
+      letterSpacing: -0.015,
   
     },
   
@@ -336,8 +340,8 @@ const styles = StyleSheet.create(
       position: 'absolute',
   
   
-    
       marginLeft:10,
+
       alignSelf:'center',
       left:3,
   
@@ -346,12 +350,12 @@ const styles = StyleSheet.create(
     },
   
     petImage: {
-  
-      left: 30,
+      left: 15,
       right: 80,
       bottom: 200,
   
-      marginTop: 250,
+      marginTop: 350,
+
       width: 70,
       height: 70,
       borderRadius: 70 / 2,
@@ -416,13 +420,15 @@ const styles = StyleSheet.create(
     buttonText:{
       
         backgroundColor: 'transparent',
-        fontSize: 16,
+        fontSize: 18,
         color:'#FFFFFF',
+        bottom: 19,
+        
     },
   
     linearGradient:{
   
-      padding: 10,
+      padding: 25,
       alignItems: 'center', 
       borderRadius: 5,
       position: 'relative',
@@ -433,11 +439,12 @@ const styles = StyleSheet.create(
   
       left: 10,
       right: 0,
-      top: 0,
-  
+      top: -60,
+
+      width: 180, 
+      height: 50,
   
       paddingBottom: 10,
-      marginBottom: 10,
   
     },
   
