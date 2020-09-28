@@ -49,7 +49,7 @@ export default function LandingScreen2({ navigation }) {
       </View>        
       </View>
       <View style={styles.links}>
-      <LinearGradient colors={['#FDB0C0,50%', '#FF008A, 80%']} start={[0.1, 0.1]} style={styles.linearGradient}>
+      <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.1, 0.1]} style={styles.linearGradient}>
 
         <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
             <Text style={styles.buttonText}>Browse</Text>
