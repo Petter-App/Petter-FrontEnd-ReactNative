@@ -1,29 +1,25 @@
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet,View } from "react-native";
+import { Text, Image,TouchableOpacity, StyleSheet,View, ImageBackground } from "react-native";
 import Swiper from "react-native-web-swiper";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode'
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+
+const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
+
 
 export default class PublicBrowse extends React.Component {
     render() {
         return (
           <View style={{flex:1}}>
               <View style={{flex:1}}>
-              <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.login}>
-            <Text style={styles.linkText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity  style={styles.register}>
-            <Text style={styles.linkText}>REGISTER</Text>
-          </TouchableOpacity>
-        </View>
-                  <Swiper
+              <ImageBackground source={image} style={styles.image}>
+                    <Swiper
                     from={1}
                     minDistanceForAction={0.1}
                     controlsProps={{
-                      dotsTouchable: true,
                       prevPos: 'left',
                       nextPos: 'right',
                       nextTitle: '>',
@@ -35,26 +31,59 @@ export default class PublicBrowse extends React.Component {
                           </Text>
                         </TouchableOpacity>
                       ),
+                      cellsContent: {
+                        'bottom': <Image source={require('../assets/images/heart.png')}
+                        />,
+                        'bottom-right':<Image
+                        source={require('../assets/images/heart.png')}
+                        style={styles.petImage}
+                      />,
+                        'bottom': <Image source={require('../assets/images/bottomslide.png')}
+                        /> ,
+                        'top': <Image source={require('../assets/images/slidetop.png')}
+                        /> ,
+
+                      },
+                      
                     }}
                   >
 
 
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,20,200,0.3)"}}>
-                          <Text>Slide 1</Text>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center", width: 400,
+    height: 420}}>
+                      <Image
+            source={require('../assets/images/budd.jpg')}
+            style={styles.seniorpetimage}
+          />
+
                       </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,200,20,0.3)"}}>
-                          <Text>Slide 2</Text>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center", width: 400,
+    height: 420}}>
+                      
+                      <Image
+            source={require('../assets/images/tank.jpg')}
+            style={styles.seniorpetimage}
+          />
+                        
                       </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(200,20,20,0.3)"}}>
-                          <Text>Slide 3</Text>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center", width: 400,
+    height: 420}}>
+                      <Image
+            source={require('../assets/images/zeus.jpg')}
+            style={styles.seniorpetimage}
+          />              
+
                       </View>
                   </Swiper>
-              </View>
+                  </ImageBackground>
 
-          </View>
+              </View>
+</View>
         )
     }
 }
+
+
 const styles = StyleSheet.create(
   {
     container: {
@@ -75,6 +104,28 @@ const styles = StyleSheet.create(
   position:'absolute',
   width:'80%', 
   height:'85%',
-  alignSelf:'center',}
+  alignSelf:'center',},
+  
+  seniorpetimage:{
+    width: '100%',
+    height: '100%',
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  petImage: {
+    left: 15,
+    right: 80,
+    bottom: 200,
+
+    marginTop: 350,
+
+    width: 70,
+    height: 70,
+    borderRadius: 70 / 2,
+
+  },
 
 });
