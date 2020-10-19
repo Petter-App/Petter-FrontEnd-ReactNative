@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { Image, ImageBackground,Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
+
 import { Analytics } from 'aws-amplify'
 
 Analytics.configure({ disabled: true })
@@ -14,61 +15,52 @@ const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-
 export default function LandingScreen2({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} style={styles.image}>
+        <ImageBackground source={image} style={styles.image}>
         <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.login} onPress={() => navigation.push('SignIn')}>
+          <TouchableOpacity style={styles.login} onPress={() => navigation.push('PetsPublic')}>
             <Text style={styles.linkText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.register} onPress={() => navigation.push('Register')}>
+          <TouchableOpacity  style={styles.register} onPress={() => navigation.push('PetsPublic')}>
             <Text style={styles.linkText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.headerContainer}>
-
+      <Text style={styles.header}>noSpringChickensx</Text>
+      </View>
+      <View style={styles.heading10Container}>
+      <Text style={styles.heading10}>Elton_John</Text>
+      </View>
+      <View style={styles.heading2Container}>
+      <Text style={styles.heading2}>match.adopt.chill.</Text>
+      </View>
+      <View style={styles.tagline}>
+        <View style={styles.petImage}>
           <Image
-            source={require('../assets/images/gold-pets-logo.png')}
-          /></View>
-
-        <View style={styles.heading10Container}>
-          <Text style={styles.heading10}>Elton_John</Text>
+            source={require('../assets/images/elton.jpg')}
+            style={styles.petImage}
+          />
         </View>
-        <View style={styles.headingContainer}>
+        <View style={styles.heading3Container}>
+      <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
+      </View>        
+      </View>
+      <View style={styles.links}>
+      <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.1, 0.1]} style={styles.linearGradient}>
 
-<Image
-  source={require('../assets/images/match-adopt-chill.png')}
-/></View>
+        <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
+            <Text style={styles.buttonText}>Browse</Text>
+        </TouchableOpacity>
+        </LinearGradient>
 
-        <View style={styles.tagline}>
-          <View style={styles.petImage}>
-            <Image
-              source={require('../assets/images/elton.jpg')}
-              style={styles.petImage}
-            />
-          </View>
-          <View style={styles.heading3Container}>
-            <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
-          </View>
-        </View>
-        <View style={styles.links}>
-          <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.1, 0.1]} style={styles.linearGradient}>
-
-            <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
-              <Text style={styles.buttonText}>Browse</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
-          {/* <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
+        {/* <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
           <LinearGradient colors={['#FF4D00', '#FF008A']} start={[20, 0.20]} style={styles.linearGradient}>
             <Text style={styles.buttonText}>Sign Up/Sign In</Text>
           </LinearGradient>
         </TouchableOpacity> */}
 
-        </View>
-        
-
-
+      </View>
       </ImageBackground>
 
     </View>
@@ -84,9 +76,9 @@ const styles = StyleSheet.create(
     container: {
 
       flex: 1,
-      backgroundColor: '#fff',
-
-
+      backgroundColor: '#fff', 
+  
+  
     },
     title: {
       fontSize: 38,
@@ -94,7 +86,7 @@ const styles = StyleSheet.create(
       color: '#1F1815',
       fontWeight: 'bold',
       padding: viewPadding,
-      marginTop: 45,
+      marginTop:45,
     },
     subTitle: {
       fontSize: 24,
@@ -114,53 +106,53 @@ const styles = StyleSheet.create(
 
     links: {
       alignItems: "center",
-      padding: viewPadding,
+      padding: viewPadding
     },
     linearButton: {
-      padding: viewPadding,
+      padding: viewPadding
     },
-
-    login: {
-
-      flex: 1,
+  
+    login:{
+  
+      flex:1, 
       position: 'absolute',
-
+  
       left: 2,
       right: 1,
       top: 18,
       bottom: 39,
-
+  
       alignItems: 'flex-start',
       textAlign: 'center',
-
-      color: '#1F1815',
-      fontWeight: 'bold',
-
+  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
       fontSize: 13,
       lineHeight: 15,
-
+  
       letterSpacing: 0.04,
-      justifyContent: 'space-between',
-
-
+      justifyContent:'space-between',
+  
+      
     },
-
-    register: {
-
-      flex: 1,
+    
+      register:{
+  
+      flex:1, 
       position: 'absolute',
-
+  
       left: 2,
       right: 1,
       top: 18,
       bottom: 29,
-
+  
       alignItems: 'flex-end',
       textAlign: 'center',
-      justifyContent: 'space-between',
-
+      justifyContent:'space-between',
+  
     },
-
+  
     image: {
       flex: 1,
       resizeMode: "cover",
@@ -168,17 +160,17 @@ const styles = StyleSheet.create(
     },
 
     landingscreen: {
-      alignSelf: 'stretch',
-      justifyContent: 'center'
-
-
+      alignSelf:'stretch',
+      justifyContent:'center'
+  
+  
     },
-
-    headerContainer: {
-
-      width: '100%',
-      height: '30%',
-
+  
+    headerContainer:{
+  
+      width:'100%',
+      height:'30%',
+  
     },
 
     header: {
@@ -187,28 +179,28 @@ const styles = StyleSheet.create(
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-      alignSelf: 'center',
-
+      alignSelf:'center',
+  
       position: 'absolute',
-
+  
       left: 34,
       top: 128,
-
+  
       paddingBottom: 10,
-      marginTop: 150,
-
+      marginTop:150,
+  
       fontSize: 38,
-      letterSpacing: -0.015,
-      color: '#1F1815',
-      fontWeight: 'bold',
-
+      letterSpacing: -0.015,  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
       textAlign: 'center',
       alignItems: 'center',
     },
-
-    heading2Container: {
-      width: '100%',
-
+  
+    heading2Container:{
+      width:'100%',
+  
     },
     heading2: {
 
@@ -216,27 +208,27 @@ const styles = StyleSheet.create(
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-
-      alignSelf: 'center',
+      
+      alignSelf:'center',
       position: 'absolute',
-
-      left: 106,
+  
+      left:106,
       top: 80,
-      marginTop: 20,
-
-
+      marginTop:20,
+  
+  
       fontSize: 24,
       lineHeight: 27,
-
-      color: '#000000',
-
+  
+      color:'#000000',
+  
       letterSpacing: -0.015,
     },
+  
 
-
-    heading10Container: {
-      width: '100%',
-
+    heading10Container:{
+      width:'100%',
+  
     },
     heading10: {
 
@@ -244,130 +236,130 @@ const styles = StyleSheet.create(
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-
-      alignSelf: 'center',
+      
+      alignSelf:'center',
       position: 'absolute',
-
-      left: 126,
+  
+      left:126,
       top: 330,
-      marginTop: 20,
-
-
-      fontSize: 13,
+      marginTop:20,
+  
+  
+      fontSize:13, 
       lineHeight: 27,
-
-      color: '#000000',
-
+  
+      color:'#000000',
+  
       letterSpacing: -0.015,
     },
+  
 
-
-    heading3Container: {
-      width: '100%',
-      height: '100%',
+    heading3Container:{
+      width:'100%',
+      height:'100%',
     },
-
+  
     heading3: {
-
-      flex: 1,
-      fontSize: 13,
-      color: '#000000',
-      alignItems: 'stretch',
-      justifyContent: 'center',
-
+  
+      flex:1,
+      fontSize:13, 
+      color:'#000000',
+      alignItems:'stretch',
+      justifyContent:'center',
+  
       left: -55.4,
-      top: 315,
-
+      top:315,
+  
       marginTop: 0.2,
       marginLeft: 89,
-
+      
     },
-
-    footerContainer: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      textAlign: 'center',
-      alignSelf: 'center',
-      marginTop: 0,
-      width: '100%',
-      height: '100%',
+  
+    footerContainer:{
+      flex:1,
+      flexDirection:'column',
+      justifyContent:'center',
+      textAlign:'center',
+      alignSelf:'center',
+      marginTop:0,
+      width:'100%',
+      height:'100%',
     },
-
-    heading4Container: {
-      width: '100%',
-      height: '100%',
-
+  
+    heading4Container:{
+      width:'100%',
+      height:'100%',
+  
     },
-
+    
     heading4: {
 
-      flex: 1,
-
+      flex:1,
+  
       position: 'absolute',
-
-
+ 
+      
 
       flex: 2,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-
-      alignSelf: 'center',
+      
+      alignSelf:'center',
       position: 'absolute',
-
-      left: 106,
+  
+      left:106,
       top: 80,
-      marginTop: 20,
-
-
+      marginTop:20,
+  
+  
       fontSize: 24,
       lineHeight: 27,
-
-      color: '#000000',
-
+  
+      color:'#000000',
+  
       letterSpacing: -0.015,
-
+  
     },
-
-
+  
+  
     contentContainer: {
-      flex: 1,
+      flex:1,
       paddingTop: 30,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: (Platform.OS === 'ios') ? 20 : 0
-
+      paddingTop: ( Platform.OS === 'ios' ) ? 20 : 0
+      
     },
-
+  
     petImageContainer: {
-
-      flex: 1,
+  
+      flex:1,
       position: 'absolute',
+  
+  
+      marginLeft:10,
 
-
-      marginLeft: 10,
-
-      alignSelf: 'center',
-      left: 3,
-
-
-
+      alignSelf:'center',
+      left:3,
+  
+  
+      
     },
-
+  
     petImage: {
       left: 15,
       right: 80,
       bottom: 200,
-
+  
       marginTop: 350,
 
       width: 70,
       height: 70,
       borderRadius: 70 / 2,
-
+  
     },
-
+  
     petsPageBodyContainer: {
       alignItems: 'center',
       marginHorizontal: 50,
@@ -407,121 +399,107 @@ const styles = StyleSheet.create(
       color: 'rgba(96,100,109, 1)',
       textAlign: 'center',
     },
-    buttonContainer: {
-
-      flex: 1,
-      flexDirection: 'row',
+    buttonContainer:{
+  
+      flex:1,
+      flexDirection:'row',
       alignItems: 'stretch',
-      justifyContent: 'center',
-      position: 'absolute',
-      alignSelf: 'center',
-
-
-      width: '100%',
-      height: '80%',
-
-
+      justifyContent:'center',
+      position:'absolute',
+      alignSelf:'center',
+  
+  
+      width:'100%',
+      height:'80%',
+      
+  
     },
-
-    buttonText: {
-
-      backgroundColor: 'transparent',
-      fontSize: 18,
-      color: '#FFFFFF',
-      bottom: 19,
-
+  
+    buttonText:{
+      
+        backgroundColor: 'transparent',
+        fontSize: 18,
+        color:'#FFFFFF',
+        bottom: 19,
+        
     },
-
-
-    linearGradient: {
-
-
+  
+    linearGradient:{
+  
       padding: 25,
-      alignItems: 'center',
+      alignItems: 'center', 
       borderRadius: 5,
       position: 'relative',
-      alignSelf: 'center',
-
-
+      alignSelf:'center',
+  
+  
       width: 157,
-
+  
       left: 10,
       right: 0,
       top: -60,
 
-      width: 180,
+      width: 180, 
       height: 50,
-
+  
       paddingBottom: 10,
-
-      shadowColor: 'black',
-      shadowOpacity: 0.26,
-      shadowOffset: { width: 0, height: 2 },
-      shadowRadius: 10,
-      elevation: 3,
-      backgroundColor: 'white',
-
-      ...Platform.select({
-        ios: {
-          shadowColor: '#000',
-          shadowOffset: { width: 1, height: 3 },
-          shadowOpacity: 0.2,
-        }
-      })
+  
     },
-
+  
     linkContainer: {
-      flex: 1,
-      flexDirection: 'row',
+      flex:1,
+      flexDirection:'row',
       marginTop: 5,
       alignItems: 'center',
-      alignContent: 'center',
-      justifyContent: 'space-between',
-      position: 'absolute',
-      width: '80%',
-      height: '85%',
-      alignSelf: 'center',
-
+      alignContent:'center',
+      justifyContent:'space-between',
+      position:'absolute',
+      width:'80%', 
+      height:'85%',
+      alignSelf:'center',
+  
     },
 
-    login: {
+    login:{
 
-      flex: 1,
+      flex:1, 
       position: 'absolute',
-
+  
       left: 2,
       right: 1,
       top: 18,
       bottom: 39,
-
+  
       alignItems: 'flex-start',
       textAlign: 'center',
-
-      color: '#1F1815',
-      fontWeight: 'bold',
-
+  
+      color:'#1F1815',
+      fontWeight:'bold',
+  
       fontSize: 13,
       lineHeight: 15,
-
+  
       letterSpacing: 0.04,
-      justifyContent: 'space-between',
-
-
+      justifyContent:'space-between',
+  
+      
     },
-
-    register: {
-
-      flex: 1,
+    
+      register:{
+  
+      flex:1, 
       position: 'absolute',
-
+  
       left: 2,
       right: 1,
       top: 18,
       bottom: 29,
-
+  
       alignItems: 'flex-end',
       textAlign: 'center',
-      justifyContent: 'space-between',
-
+      justifyContent:'space-between',
+  
     },
+  
+    
   });

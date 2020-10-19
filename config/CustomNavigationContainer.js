@@ -9,8 +9,10 @@ import PetsPublic from '../screens/PetsPublic';
 import LandingScreen2 from '../screens/LandingScreen2';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import Auth from 'aws-amplify'
-import { Analytics } from 'aws-amplify'
+import Auth from 'aws-amplify';
+import { Analytics } from 'aws-amplify';
+import Register from '../screens/Register';
+
 
 import ConfirmSignIn from '../screens/ConfirmSignIn';
 Amplify.configure(awsconfig);
@@ -26,6 +28,10 @@ const GuestStackScreen = () => (
     }} />
     <GuestStack.Screen name="SignIn" component={ConfirmSignIn} />
     <GuestStack.Screen name="PetsPublic" component={PetsPublic} options={{
+      headerShown: false,
+      headerTitle: "Go Back"
+    }} />
+        <GuestStack.Screen name="Register" component={Register} options={{
       headerShown: false,
       headerTitle: "Go Back"
     }} />
