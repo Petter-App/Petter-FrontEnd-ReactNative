@@ -1,13 +1,19 @@
 import React from "react";
-import { Text, Image,TouchableOpacity, StyleSheet,View, ImageBackground } from "react-native";
+import { Text, Dimensions,Image,TouchableOpacity, StyleSheet,View, ImageBackground } from "react-native";
 import Swiper from "react-native-web-swiper";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode'
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+const { width } = Dimensions.get('window')
+
+
 
 const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
+
+
+
 
 
 export default class PublicBrowse extends React.Component {
@@ -17,9 +23,12 @@ export default class PublicBrowse extends React.Component {
               <View style={{flex:1}}>
               <ImageBackground source={image} style={styles.image}>
                     <Swiper
-                    from={1}
+                     from={1}
                     minDistanceForAction={0.1}
+
                     controlsProps={{
+                      dotsTouchable: false,
+                      dotsPos: 'top',
                       prevPos: 'left',
                       nextPos: 'right',
                       nextTitle: '>',
@@ -36,14 +45,17 @@ export default class PublicBrowse extends React.Component {
                         />,
                         'bottom-right':<Image
                         source={require('../assets/images/heart.png')}
-                        style={styles.petImage}
+                        style={styles.petHeart}
                       />,
-                        'bottom': <Image source={require('../assets/images/bottomslide.png')}
+                        'bottom': <Image source={require('../assets/images/bottomslide.png')} style={{opacity: 0.4}}
                         /> ,
                         'top': <Image source={require('../assets/images/slidetop.png')}
-                        /> ,
+                        style={{opacity: 0.4}} /> ,
+                        'top-right': <Text>LOGIN</Text> ,
+                        'top-left': <Text>REGISTER</Text> ,
 
                       },
+                      
                       
                     }}
                   >
@@ -128,4 +140,14 @@ const styles = StyleSheet.create(
 
   },
 
+  petHeart: {
+    right: 150,
+    bottom: 200,
+
+    marginTop: 350,
+
+    width: 70,
+    height: 70,
+
+  },
 });

@@ -29,15 +29,15 @@ export default function LandingScreen2({ navigation }) {
 
           <Image
             source={require('../assets/images/gold-pets-logo.png')}
-          /></View>
+          style={styles.header}/></View>
 
         <View style={styles.heading10Container}>
           <Text style={styles.heading10}>Elton_John</Text>
         </View>
-        <View style={styles.headingContainer}>
+        <View style={styles.heading2Container}>
 
 <Image
-  source={require('../assets/images/match-adopt-chill.png')}
+  source={require('../assets/images/match-adopt-chill.png')} style={styles.heading2}
 /></View>
 
         <View style={styles.tagline}>
@@ -65,7 +65,7 @@ export default function LandingScreen2({ navigation }) {
           </LinearGradient>
         </TouchableOpacity> */}
 
-        </View>
+      </View>
         
 
 
@@ -195,7 +195,7 @@ const styles = StyleSheet.create(
       top: 128,
 
       paddingBottom: 10,
-      marginTop: 150,
+      marginTop: 80,
 
       fontSize: 38,
       letterSpacing: -0.015,
