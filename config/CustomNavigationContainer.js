@@ -12,6 +12,8 @@ import awsconfig from '../aws-exports';
 import Auth from 'aws-amplify';
 import { Analytics } from 'aws-amplify';
 import Register from '../screens/Register';
+import home from '../screens/home';
+
 
 
 import ConfirmSignIn from '../screens/ConfirmSignIn';
@@ -31,7 +33,7 @@ const GuestStackScreen = () => (
       headerShown: false,
       headerTitle: "Go Back"
     }} />
-        <GuestStack.Screen name="Register" component={Register} options={{
+        <GuestStack.Screen name="home" component={home} options={{
       headerShown: false,
       headerTitle: "Go Back"
     }} />

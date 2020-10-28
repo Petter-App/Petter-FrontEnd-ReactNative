@@ -15,47 +15,26 @@ export default function LandingScreen2({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.login} onPress={() => navigation.push('SignIn')}>
-            <Text style={styles.linkText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.register} onPress={() => navigation.push('home')}>
-            <Text style={styles.linkText}>HOME</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.headerContainer}>
 
-          <Image
-            source={require('../assets/images/gold-pets-logo.png')}
-          style={styles.header}/></View>
-
-        <View style={styles.heading10Container}>
-          <Text style={styles.heading10}>Elton_John</Text>
-        </View>
-        <View style={styles.heading2Container}>
+      <View style={styles.searchImage}>
 
 <Image
-  source={require('../assets/images/match-adopt-chill.png')} style={styles.heading2}
-/></View>
+  source={require('../assets/images/search.png')}/></View>
 
-        <View style={styles.tagline}>
-          <View style={styles.petImage}>
-            <Image
-              source={require('../assets/images/elton.jpg')}
-              style={styles.petImage}
-            />
-          </View>
-          <View style={styles.heading3Container}>
-            <Text style={styles.heading3}>"No exercise, cuddles please!"</Text>
-          </View>
+      <View style={styles.headerContainer}>
+      <Image
+            source={require('../assets/images/the-one.png')}
+          style={styles.header}/></View>
+        <View  style={styles.links}> 
+        <TouchableOpacity   onPress={() => navigation.push('PetsPublic')} style={styles.allButton} >
+              <Text style={styles.allButtonText} >See All</Text>
+            </TouchableOpacity>
         </View>
         <View style={styles.links}>
-          <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.1, 0.1]} style={styles.linearGradient}>
+          <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearGradient}>
 
             <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
-              <Text style={styles.buttonText}>Browse</Text>
+              <Text style={styles.buttonText}>Find a Match</Text>
             </TouchableOpacity>
           </LinearGradient>
 
@@ -177,7 +156,6 @@ const styles = StyleSheet.create(
     headerContainer: {
 
       width: '100%',
-      height: '30%',
 
     },
 
@@ -185,17 +163,14 @@ const styles = StyleSheet.create(
 
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'stretch',
-      alignSelf: 'center',
+
 
       position: 'absolute',
 
-      left: 34,
-      top: 128,
+      left: 104,
 
       paddingBottom: 10,
-      marginTop: 80,
+      marginTop: -30,
 
       fontSize: 38,
       letterSpacing: -0.015,
@@ -447,7 +422,7 @@ const styles = StyleSheet.create(
 
       left: 10,
       right: 0,
-      top: -60,
+      top: 10,
 
       width: 180,
       height: 50,
@@ -469,6 +444,55 @@ const styles = StyleSheet.create(
         }
       })
     },
+
+    allButton:{
+
+        padding: 25,
+        alignItems: 'center',
+        borderRadius: 5,
+        position: 'relative',
+        alignSelf: 'center',
+        borderWidth: 2,
+        borderColor: '#FF008A',
+
+  
+  
+        width: 157,
+  
+        left: 10,
+        right: 0,
+        top:38,
+  
+        width: 180,
+        height: 50,
+  
+        paddingBottom: 10,
+  
+        shadowColor: 'black',
+        shadowOpacity: 0.26,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 10,
+        elevation: 3,
+        backgroundColor: 'white',
+  
+        ...Platform.select({
+          ios: {
+            shadowColor: '#000',
+            shadowOffset: { width: 1, height: 3 },
+            shadowOpacity: 0.2,
+          }
+        })
+    },
+
+    allButtonText:{
+
+        color:'#FF008A',
+        fontSize: 18,
+        bottom: 12,
+
+
+    }
+    ,
 
     linkContainer: {
       flex: 1,
@@ -509,17 +533,17 @@ const styles = StyleSheet.create(
 
     },
 
-    register: {
+    searchImage: {
 
       flex: 1,
       position: 'absolute',
 
       left: 2,
       right: 1,
-      top: 18,
-      bottom: 29,
+      top: 200,
+      bottom: 10,
 
-      alignItems: 'flex-end',
+      alignItems: 'center',
       textAlign: 'center',
       justifyContent: 'space-between',
 
