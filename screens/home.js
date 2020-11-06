@@ -45,7 +45,9 @@ export default function LandingScreen2({ navigation }) {
         </TouchableOpacity> */}
 
       </View>
-        
+      <View style={styles.bottom}>
+ <Image source={require('../assets/images/heart.png')} />
+</View>
 
 
       </ImageBackground>
@@ -170,7 +172,7 @@ const styles = StyleSheet.create(
       left: 104,
 
       paddingBottom: 10,
-      marginTop: -30,
+      marginTop: 230,
 
       fontSize: 38,
       letterSpacing: -0.015,
@@ -386,7 +388,7 @@ const styles = StyleSheet.create(
 
       flex: 1,
       flexDirection: 'row',
-      alignItems: 'stretch',
+      alignItems: 'center',
       justifyContent: 'center',
       position: 'absolute',
       alignSelf: 'center',
@@ -403,28 +405,27 @@ const styles = StyleSheet.create(
       backgroundColor: 'transparent',
       fontSize: 18,
       color: '#FFFFFF',
-      bottom: 19,
+      bottom: 29,
 
     },
 
 
     linearGradient: {
 
-
-      padding: 25,
+      
+      padding: 35,
       alignItems: 'center',
       borderRadius: 5,
       position: 'relative',
       alignSelf: 'center',
 
 
-      width: 157,
 
       left: 10,
       right: 0,
-      top: 10,
+      top: 300,
 
-      width: 180,
+      width: 190,
       height: 50,
 
       paddingBottom: 10,
@@ -447,7 +448,8 @@ const styles = StyleSheet.create(
 
     allButton:{
 
-        padding: 25,
+        flex:1,
+        padding: 35,
         alignItems: 'center',
         borderRadius: 5,
         position: 'relative',
@@ -461,7 +463,7 @@ const styles = StyleSheet.create(
   
         left: 10,
         right: 0,
-        top:38,
+        top:330,
   
         width: 180,
         height: 50,
@@ -488,7 +490,7 @@ const styles = StyleSheet.create(
 
         color:'#FF008A',
         fontSize: 18,
-        bottom: 12,
+        bottom: 23,
 
 
     }
@@ -540,7 +542,7 @@ const styles = StyleSheet.create(
 
       left: 2,
       right: 1,
-      top: 200,
+      top: 180,
       bottom: 10,
 
       alignItems: 'center',
@@ -548,4 +550,11 @@ const styles = StyleSheet.create(
       justifyContent: 'space-between',
 
     },
+      bottom: {
+      flex:1,
+      justifyContent: 'flex-end',
+      marginBottom: 26,
+      alignItems: 'center'
+
+}
   });
