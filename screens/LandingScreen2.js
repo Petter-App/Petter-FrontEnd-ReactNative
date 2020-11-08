@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, TouchableHighlight } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import { Analytics } from 'aws-amplify'
 
@@ -9,20 +9,17 @@ Analytics.configure({ disabled: true })
 const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
 
 
-
-
 export default function LandingScreen2({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.login} onPress={() => navigation.push('SignIn')}>
-            <Text style={styles.linkText}>LOGIN</Text>
+        <View style={styles.log}>
+          <TouchableOpacity   onPress={() => navigation.push('tinderSwiper')} >
+            <Text>TINDER</Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.linkContainer}>
-          <TouchableOpacity style={styles.register} onPress={() => navigation.push('home')}>
-            <Text style={styles.linkText}>HOME</Text>
+          </View><View style={styles.reg}>
+          <TouchableOpacity onPress={() => navigation.push('home')}>
+            <Text >HOME</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.headerContainer}>
@@ -192,7 +189,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
 
       left: 34,
-      top: 128,
+      top: 65,
 
       paddingBottom: 10,
       marginTop: 80,
@@ -221,7 +218,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
 
       left: 106,
-      top: 80,
+      top: 40,
       marginTop: 20,
 
 
@@ -249,7 +246,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
 
       left: 126,
-      top: 330,
+      top: 280,
       marginTop: 20,
 
 
@@ -276,7 +273,7 @@ const styles = StyleSheet.create(
       justifyContent: 'center',
 
       left: -55.4,
-      top: 315,
+      top: 270,
 
       marginTop: 0.2,
       marginLeft: 89,
@@ -358,7 +355,7 @@ const styles = StyleSheet.create(
     petImage: {
       left: 15,
       right: 80,
-      bottom: 200,
+      bottom: 230,
 
       marginTop: 350,
 
@@ -432,6 +429,31 @@ const styles = StyleSheet.create(
 
     },
 
+    regLogContainer:{
+
+      flexDirection: 'row'
+
+    },
+
+    reg:{
+
+      top:70,
+      left:300,
+      width: 100, 
+      height: 50, 
+
+
+    },
+
+      log:{
+        top:120,
+        left:50,
+        width: 100, 
+        height: 50, 
+      },
+
+    
+
 
     linearGradient: {
 
@@ -447,7 +469,7 @@ const styles = StyleSheet.create(
 
       left: 10,
       right: 0,
-      top: -60,
+      top: -100,
 
       width: 180,
       height: 50,
@@ -470,58 +492,6 @@ const styles = StyleSheet.create(
       })
     },
 
-    linkContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      marginTop: 5,
-      alignItems: 'center',
-      alignContent: 'center',
-      justifyContent: 'space-between',
-      position: 'absolute',
-      width: '80%',
-      height: '85%',
-      alignSelf: 'center',
-
-    },
-
-    login: {
-
-      flex: 1,
-      position: 'absolute',
-
-      left: 2,
-      right: 1,
-      top: 18,
-      bottom: 39,
-
-      alignItems: 'flex-start',
-      textAlign: 'center',
-
-      color: '#1F1815',
-      fontWeight: 'bold',
-
-      fontSize: 13,
-      lineHeight: 15,
-
-      letterSpacing: 0.04,
-      justifyContent: 'space-between',
 
 
-    },
-
-    register: {
-
-      flex: 1,
-      position: 'absolute',
-
-      left: 2,
-      right: 1,
-      top: 18,
-      bottom: 29,
-
-      alignItems: 'flex-end',
-      textAlign: 'center',
-      justifyContent: 'space-between',
-
-    },
   });

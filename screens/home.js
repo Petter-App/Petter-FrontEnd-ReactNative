@@ -11,7 +11,7 @@ const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-
 
 
 
-export default function LandingScreen2({ navigation }) {
+export default function home({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>

@@ -13,10 +13,9 @@ import Auth from 'aws-amplify';
 import { Analytics } from 'aws-amplify';
 import Register from '../screens/Register';
 import home from '../screens/home';
-
-
-
 import ConfirmSignIn from '../screens/ConfirmSignIn';
+import tinderSwiper from '../screens/tinderSwiper';
+
 Amplify.configure(awsconfig);
 Analytics.configure({ disabled: true })
 
@@ -34,6 +33,10 @@ const GuestStackScreen = () => (
       headerTitle: "Go Back"
     }} />
         <GuestStack.Screen name="home" component={home} options={{
+      headerShown: false,
+      headerTitle: "Go Back"
+    }} />
+            <GuestStack.Screen name="tinderSwiper" component={tinderSwiper} options={{
       headerShown: false,
       headerTitle: "Go Back"
     }} />
