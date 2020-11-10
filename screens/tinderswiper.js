@@ -9,7 +9,7 @@ function * range (start, end) {
   }
 }
 
-export default class Exemple extends Component {
+export default class tinderSwiper extends Component {
   constructor (props) {
     super(props)
     this.state = {
