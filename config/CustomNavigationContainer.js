@@ -7,6 +7,7 @@ import Account from '../screens/Account';
 import Loading from '../screens/Loading';
 import PetsPublic from '../screens/PetsPublic';
 import LandingScreen2 from '../screens/LandingScreen2';
+// import tinderSwiper from '../screens/tinderSwiper';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import Auth from 'aws-amplify';
@@ -14,7 +15,6 @@ import { Analytics } from 'aws-amplify';
 import Register from '../screens/Register';
 import home from '../screens/home';
 import ConfirmSignIn from '../screens/ConfirmSignIn';
-import tinderSwiper from '../screens/tinderSwiper';
 
 Amplify.configure(awsconfig);
 Analytics.configure({ disabled: true })
@@ -36,10 +36,10 @@ const GuestStackScreen = () => (
       headerShown: false,
       headerTitle: "Go Back"
     }} />
-            <GuestStack.Screen name="tinderSwiper" component={tinderSwiper} options={{
+            {/* <GuestStack.Screen name="tinderSwiper" component={tinderSwiper} options={{
       headerShown: false,
       headerTitle: "Go Back"
-    }} />
+    }} /> */}
     <GuestStack.Screen name="BottomStack" component={BottomStackScreen} options={{
       headerShown: false,
     }} />
