@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, TouchableHighlight } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import { Analytics } from 'aws-amplify'
 
@@ -9,50 +9,21 @@ Analytics.configure({ disabled: true })
 const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
 
 
-
-
-export default function home({ navigation }) {
+export default function savedPets({ navigation }) {
   return (
     <View style={styles.container}>
+     
       <ImageBackground source={image} style={styles.image}>
 
-      <View style={styles.searchImage}>
-
-<Image
-  source={require('../assets/images/search.png')}/></View>
-
-      <View style={styles.headerContainer}>
-      <Image
-            source={require('../assets/images/the-one.png')}
-          style={styles.header}/></View>
-        <View  style={styles.links}> 
-        <TouchableOpacity   onPress={() => navigation.push('PetsPublic')} style={styles.allButton} >
-              <Text style={styles.allButtonText} >See All</Text>
-            </TouchableOpacity>
+     <View style={styles.viewStyle}>
+        <View>
+       <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
         </View>
-        <View style={styles.links}>
-          <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearGradient}>
-
-            <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
-              <Text style={styles.buttonText}>Find a Match</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
-          {/* <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('SignIn')} >
-          <LinearGradient colors={['#FF4D00', '#FF008A']} start={[20, 0.20]} style={styles.linearGradient}>
-            <Text style={styles.buttonText}>Sign Up/Sign In</Text>
-          </LinearGradient>
-        </TouchableOpacity> */}
-
-      </View>
-      <View style={styles.bottom}>
-      <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('savedPets')} >
- <Image source={require('../assets/images/heart.png')} />
-</TouchableOpacity>
-
+        <View style={styles.childStyle}></View>
+        <View style={styles.childStyle}></View>
+        <View style={styles.childStyle}></View>
+        
 </View>
-
-
 
       </ImageBackground>
 
@@ -162,6 +133,7 @@ const styles = StyleSheet.create(
     headerContainer: {
 
       width: '100%',
+      height: '30%',
 
     },
 
@@ -169,14 +141,17 @@ const styles = StyleSheet.create(
 
       flex: 1,
       flexDirection: 'row',
-
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      alignSelf: 'center',
 
       position: 'absolute',
 
-      left: 104,
+      left: 34,
+      top: 65,
 
       paddingBottom: 10,
-      marginTop: 230,
+      marginTop: 80,
 
       fontSize: 38,
       letterSpacing: -0.015,
@@ -202,7 +177,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
 
       left: 106,
-      top: 80,
+      top: 40,
       marginTop: 20,
 
 
@@ -230,7 +205,7 @@ const styles = StyleSheet.create(
       position: 'absolute',
 
       left: 126,
-      top: 330,
+      top: 280,
       marginTop: 20,
 
 
@@ -257,7 +232,7 @@ const styles = StyleSheet.create(
       justifyContent: 'center',
 
       left: -55.4,
-      top: 315,
+      top: 270,
 
       marginTop: 0.2,
       marginLeft: 89,
@@ -339,7 +314,7 @@ const styles = StyleSheet.create(
     petImage: {
       left: 15,
       right: 80,
-      bottom: 200,
+      bottom: 230,
 
       marginTop: 350,
 
@@ -392,7 +367,7 @@ const styles = StyleSheet.create(
 
       flex: 1,
       flexDirection: 'row',
-      alignItems: 'center',
+      alignItems: 'stretch',
       justifyContent: 'center',
       position: 'absolute',
       alignSelf: 'center',
@@ -409,27 +384,53 @@ const styles = StyleSheet.create(
       backgroundColor: 'transparent',
       fontSize: 18,
       color: '#FFFFFF',
-      bottom: 29,
+      bottom: 19,
 
     },
+
+    regLogContainer:{
+
+      flexDirection: 'row'
+
+    },
+
+    reg:{
+
+      top:70,
+      left:300,
+      width: 100, 
+      height: 50, 
+
+
+    },
+
+      log:{
+        top:120,
+        left:50,
+        width: 100, 
+        height: 50, 
+      },
+
+    
 
 
     linearGradient: {
 
-      
-      padding: 35,
+
+      padding: 25,
       alignItems: 'center',
       borderRadius: 5,
       position: 'relative',
       alignSelf: 'center',
 
 
+      width: 157,
 
       left: 10,
       right: 0,
-      top: 300,
+      top: -100,
 
-      width: 190,
+      width: 180,
       height: 50,
 
       paddingBottom: 10,
@@ -450,115 +451,32 @@ const styles = StyleSheet.create(
       })
     },
 
-    allButton:{
-
-        flex:1,
-        padding: 35,
-        alignItems: 'center',
-        borderRadius: 5,
-        position: 'relative',
-        alignSelf: 'center',
-        borderWidth: 2,
-        borderColor: '#FF008A',
-
-  
-  
-        width: 157,
-  
-        left: 10,
-        right: 0,
-        top:330,
-  
-        width: 180,
-        height: 50,
-  
-        paddingBottom: 10,
-  
-        shadowColor: 'black',
-        shadowOpacity: 0.26,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
-        elevation: 3,
-        backgroundColor: 'white',
-  
-        ...Platform.select({
-          ios: {
-            shadowColor: '#000',
-            shadowOffset: { width: 1, height: 3 },
-            shadowOpacity: 0.2,
-          }
-        })
+    viewStyle: {
+      flex: 1,
+      flexWrap: 'wrap',
+      flexDirection: 'row',
+      marginTop: 120,
     },
+    childStyle: {
+      marginTop: 20,
+      width: '50%',
+      height: 100,
+      backgroundColor: 'red',
+      borderWidth: 1,
+      borderColor: 'black',
+    },
+    childStyle1: {
+      marginTop: 20,
+      width: '30%',
+      height: 100,
+      borderWidth: 1,
+      borderColor: 'black',
 
-    allButtonText:{
 
-        color:'#FF008A',
-        fontSize: 18,
-        bottom: 23,
-
+      width: 70,
+      height: 70,
+      borderRadius: 70 / 2,
 
     }
-    ,
 
-    linkContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      marginTop: 5,
-      alignItems: 'center',
-      alignContent: 'center',
-      justifyContent: 'space-between',
-      position: 'absolute',
-      width: '80%',
-      height: '85%',
-      alignSelf: 'center',
-
-    },
-
-    login: {
-
-      flex: 1,
-      position: 'absolute',
-
-      left: 2,
-      right: 1,
-      top: 18,
-      bottom: 39,
-
-      alignItems: 'flex-start',
-      textAlign: 'center',
-
-      color: '#1F1815',
-      fontWeight: 'bold',
-
-      fontSize: 13,
-      lineHeight: 15,
-
-      letterSpacing: 0.04,
-      justifyContent: 'space-between',
-
-
-    },
-
-    searchImage: {
-
-      flex: 1,
-      position: 'absolute',
-
-      left: 2,
-      right: 1,
-      top: 180,
-      bottom: 10,
-
-      alignItems: 'center',
-      textAlign: 'center',
-      justifyContent: 'space-between',
-
-    },
-      bottom: {
-      flex:1,
-      justifyContent: 'flex-end',
-      marginBottom: 26,
-      alignItems: 'center'
-
-}
   });

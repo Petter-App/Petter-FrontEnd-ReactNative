@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Swiper from 'react-native-deck-swiper'
 import { Button, StyleSheet, Text, View } from 'react-native'
+import { Platform } from 'react-native'
+
+
 
 // demo purposes only
 function * range (start, end) {
@@ -139,6 +142,7 @@ export default class tinderSwiper extends Component {
           <Button onPress={() => this.swiper.swipeBack()} title='Swipe Back' />
         </Swiper>
       </View>
+      
     )
   }
 }
