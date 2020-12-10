@@ -16,6 +16,8 @@ import Register from '../screens/Register';
 import home from '../screens/home';
 import ConfirmSignIn from '../screens/ConfirmSignIn';
 import savedPets from '../screens/savedPets';
+import petProfile from '../screens/petProfile';
+
 
 Amplify.configure(awsconfig);
 Analytics.configure({ disabled: true })
@@ -38,6 +40,11 @@ const GuestStackScreen = () => (
       headerTitle: "Go Back"
     }} />
             <GuestStack.Screen name="savedPets" component={savedPets} options={{
+      headerShown: false,
+      headerTitle: "Go Back"
+    }} />
+
+<GuestStack.Screen name="petProfile" component={petProfile} options={{
       headerShown: false,
       headerTitle: "Go Back"
     }} />
