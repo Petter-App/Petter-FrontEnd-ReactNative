@@ -45,8 +45,11 @@ return (
         <Text style={styles.petName}>elton_john</Text>
         </View>
         <View style={styles.childNavigate}>
-
+<View>
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
           <Text style={styles.linkProfile}>Profile</Text>
+          </TouchableOpacity>
+      </View>
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View>
         </View>
@@ -156,7 +159,9 @@ return (
       </View>
 </ScrollView>
 <View style={styles.bottomView}>
+<TouchableOpacity onPress={() => navigation.push('userProfile')}>
           <Image source={require('../assets/images/profile.png')} style={styles.childProfile}/>
+          </TouchableOpacity>
           <Image source={require('../assets/images/home.png')} style={styles.childHome}/>
 
 

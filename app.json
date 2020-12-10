@@ -3,7 +3,6 @@
     "name": "Tab Navigation Template",
     "slug": "petter",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
