@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function UserProfile() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.userprofilescreen}>
         <Text style={styles.header}>Profile </Text>
         </View>
@@ -17,10 +17,7 @@ export default function UserProfile() {
         <View style={styles.userprofilescreen}>
         <Text style={styles.heading2}>Change your password</Text>
         </View>
-        <View style={styles.userprofilescreen}>
-        <Text style={styles.heading2}>Change your preferences</Text>
         </View>
-        </ScrollView>
         </View>
            );
         }
