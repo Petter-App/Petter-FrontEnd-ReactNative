@@ -37,6 +37,9 @@ return (
             <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
             </LinearGradient>
             </View>
+            <Text>elton_john</Text>
+
+
 
 <View  style={styles.titleSavedContainer}>
 <Image source={require('../assets/images/pet-profile-tagline.png')} 
@@ -52,6 +55,10 @@ return (
 
 <View style={styles.childTitle}>
         <Text style={styles.petName}>elton_john</Text>
+        <Text>Rescue Group:Belle</Text>
+        <Text>Location:Perth</Text>
+        <Text>Age:6</Text>
+
         </View>
 </View>
 
@@ -493,7 +500,7 @@ const styles = StyleSheet.create(
       width: '60%',
       height: 100,
       backgroundColor: 'white',
-      left:40,
+      left:'20%',
     
       borderRadius: 5,
 
@@ -542,12 +549,14 @@ const styles = StyleSheet.create(
     },
     titleSavedContainer:{
       justifyContent: 'center',
-      alignItems: 'center',
+
+
     },
 
     titleSaved: {
-      marginTop:100,
-
+      alignSelf: 'center',
+      marginLeft:'28%',
+      marginTop:'8%' ,
     },
 
     childTitle:{
