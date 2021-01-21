@@ -37,8 +37,9 @@ return (
             <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
             </LinearGradient>
             </View>
-            <Text>elton_john</Text>
-
+            <View style={styles.profileTitle}>
+            <Text style={styles.petName}>elton_john</Text>   
+            </View>
 
 
 <View  style={styles.titleSavedContainer}>
@@ -54,7 +55,6 @@ return (
         <View style={styles.childStyle}>
 
 <View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
         <Text>Rescue Group:Belle</Text>
         <Text>Location:Perth</Text>
         <Text>Age:6</Text>
@@ -563,10 +563,41 @@ const styles = StyleSheet.create(
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      flexDirection: 'row',
-      fontSize:40,
+     fontSize:40,
       
     },
+
+    profileTitle:{
+
+      marginTop: '60%',
+      marginLeft: '32%',
+      height: 150,
+      width:150,
+
+      flex: 1,
+
+      flexDirection:'row',
+      alignItems: 'stretch',
+      position:'absolute',
+
+      
+
+    },
+
+    petName:{
+      fontSize:30,
+      fontFamily: "Raleway_200ExtraLight",
+ 
+      flexDirection:'row',
+      alignItems: 'stretch',
+
+      justifyContent: 'center',
+
+
+      
+    },
+    
+
     bottomView: {
       width: '100%',
       height: 60,
@@ -637,10 +668,6 @@ linkAdopt:{
 
 },
 
-petName:{
-  fontSize:20,
-  fontFamily: "Raleway_200ExtraLight",
-},
 
 
   });
