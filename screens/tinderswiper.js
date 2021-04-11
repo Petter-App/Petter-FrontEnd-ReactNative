@@ -1,102 +1,134 @@
-import React, { Component } from 'react'
-import Swiper from 'react-native-deck-swiper'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { Platform } from 'react-native'
+import React from 'react';
+import {
+  Image,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Dimensions
+} from 'react-native';
+
+import data from '../data';
+import Swiper from 'react-native-deck-swiper';
+import { Transitioning, Transition } from 'react-native-reanimated';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+// import {useFonts,Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black} from "@expo-google-fonts/raleway";
 
 
+const { width } = Dimensions.get('window');
 
-// demo purposes only
-function * range (start, end) {
-  for (let i = start; i <= end; i++) {
-    yield i
-  }
-}
+const stackSize = 4;
+const colors = {
+  red: '#EC2379',
+  blue: '#0070FF',
+  gray: '#777777',
+  white: '#ffffff',
+  black: '#000000'
+};
+const ANIMATION_DURATION = 200;
 
-export default class tinderSwiper extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      cards: [...range(1, 50)],
-      swipedAllCards: false,
-      swipeDirection: '',
-      cardIndex: 0
-    }
-  }
+const transition = (
+  <Transition.Sequence>
+    <Transition.Out
+      type='slide-bottom'
+      durationMs={ANIMATION_DURATION}
+      interpolation='easeIn'
+    />
+    <Transition.Together>
+      <Transition.In
+        type='fade'
+        durationMs={ANIMATION_DURATION}
+        delayMs={ANIMATION_DURATION / 2}
+      />
+      <Transition.In
+        type='slide-bottom'
+        durationMs={ANIMATION_DURATION}
+        delayMs={ANIMATION_DURATION / 2}
+        interpolation='easeOut'
+      />
+    </Transition.Together>
+  </Transition.Sequence>
+);
 
-  renderCard = (card, index) => {
-    return (
-      <View style={styles.card}>
-        <Text style={styles.text}>{card} - {index}</Text>
-      </View>
-    )
+const swiperRef = React.createRef();
+const transitionRef = React.createRef();
+
+const Card = ({ card }) => {
+  return (
+    <View style={styles.card}>
+      <Image source={{ uri: card.image }} style={styles.cardImage} />
+    </View>
+  );
+};
+
+const CardDetails = ({ index }) => (
+  <View key={data[index].id} style={{ alignItems: 'center' }}>
+    <Text style={[styles.text, styles.heading]} numberOfLines={2}>
+      {data[index].name}
+    </Text>
+    <Text style={[styles.text, styles.price]}>{data[index].price}</Text>
+  </View>
+);
+
+export default function Tinder() {
+  const [index, setIndex] = React.useState(0);
+  const onSwiped = () => {
+    transitionRef.current.animateNextTransition();
+    setIndex((index + 1) % data.length);
   };
 
-  onSwiped = (type) => {
-    console.log(`on swiped ${type}`)
-  }
-
-  onSwipedAllCards = () => {
-    this.setState({
-      swipedAllCards: true
-    })
-  };
-
-  swipeLeft = () => {
-    this.swiper.swipeLeft()
-  };
-
-  render () {
-    return (
-      <View style={styles.container}>
+  return (
+    <SafeAreaView style={styles.container}>
+      <MaterialCommunityIcons
+        name='crop-square'
+        size={width}
+        color={colors.blue}
+        style={{
+          opacity: 0.05,
+          transform: [{ rotate: '45deg' }, { scale: 1.6 }],
+          position: 'absolute',
+          left: -15,
+          top: 30
+        }}
+      />
+      <StatusBar hidden={true} />
+      <View style={styles.swiperContainer}>
         <Swiper
-          ref={swiper => {
-            this.swiper = swiper
-          }}
-          onSwiped={() => this.onSwiped('general')}
-          onSwipedLeft={() => this.onSwiped('left')}
-          onSwipedRight={() => this.onSwiped('right')}
-          onSwipedTop={() => this.onSwiped('top')}
-          onSwipedBottom={() => this.onSwiped('bottom')}
-          onTapCard={this.swipeLeft}
-          cards={this.state.cards}
-          cardIndex={this.state.cardIndex}
-          cardVerticalMargin={80}
-          renderCard={this.renderCard}
-          onSwipedAll={this.onSwipedAllCards}
-          stackSize={3}
-          stackSeparation={15}
+          ref={swiperRef}
+          cards={data}
+          cardIndex={index}
+          renderCard={card => <Card card={card} />}
+          infinite
+          backgroundColor={'transparent'}
+          onSwiped={onSwiped}
+          onTapCard={() => swiperRef.current.swipeLeft()}
+          cardVerticalMargin={50}
+          stackSize={stackSize}
+          stackScale={10}
+          stackSeparation={14}
+          animateOverlayLabelsOpacity
+          animateCardOpacity
+          disableTopSwipe
+          disableBottomSwipe
           overlayLabels={{
-            bottom: {
-              title: 'BLEAH',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
-            },
             left: {
               title: 'NOPE',
               style: {
                 label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
+                  backgroundColor: colors.red,
+                  borderColor: colors.red,
+                  color: colors.white,
+                  borderWidth: 1,
+                  fontSize: 24
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'flex-end',
                   justifyContent: 'flex-start',
-                  marginTop: 30,
-                  marginLeft: -30
+                  marginTop: 20,
+                  marginLeft: -20
                 }
               }
             },
@@ -104,61 +136,89 @@ export default class tinderSwiper extends Component {
               title: 'LIKE',
               style: {
                 label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
+                  backgroundColor: colors.blue,
+                  borderColor: colors.blue,
+                  color: colors.white,
+                  borderWidth: 1,
+                  fontSize: 24
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   justifyContent: 'flex-start',
-                  marginTop: 30,
-                  marginLeft: 30
-                }
-              }
-            },
-            top: {
-              title: 'SUPER LIKE',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  marginTop: 20,
+                  marginLeft: 20
                 }
               }
             }
           }}
-          animateOverlayLabelsOpacity
-          animateCardOpacity
-          swipeBackCard
-        >
-          <Button onPress={() => this.swiper.swipeBack()} title='Swipe Back' />
-        </Swiper>
+        />
       </View>
-      
-    )
-  }
+      <View style={styles.bottomContainer}>
+        <Transitioning.View
+          ref={transitionRef}
+          transition={transition}
+          style={styles.bottomContainerMeta}
+        >
+          <CardDetails index={index} />
+        </Transitioning.View>
+        <View style={styles.bottomContainerButtons}>
+          <MaterialCommunityIcons.Button
+            name='close'
+            size={94}
+            backgroundColor='transparent'
+            underlayColor='transparent'
+            activeOpacity={0.3}
+            color={colors.red}
+            onPress={() => swiperRef.current.swipeLeft()}
+          />
+          <MaterialCommunityIcons.Button
+            name='circle-outline'
+            size={94}
+            backgroundColor='transparent'
+            underlayColor='transparent'
+            activeOpacity={0.3}
+            color={colors.blue}
+            onPress={() => swiperRef.current.swipeRight()}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: colors.white
+  },
+  swiperContainer: {
+    flex: 0.55
+  },
+  bottomContainer: {
+    flex: 0.45,
+    justifyContent: 'space-evenly'
+  },
+  bottomContainerMeta: { alignContent: 'flex-end', alignItems: 'center' },
+  bottomContainerButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+  },
+  cardImage: {
+    width: 160,
+    flex: 1,
+    resizeMode: 'contain'
   },
   card: {
-    flex: 1,
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: '#E8E8E8',
+    flex: 0.45,
+    borderRadius: 8,
+    shadowRadius: 25,
+    shadowColor: colors.black,
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 0 },
     justifyContent: 'center',
-    backgroundColor: 'white'
+    alignItems: 'center',
+    backgroundColor: colors.white
   },
   text: {
     textAlign: 'center',
@@ -168,7 +228,11 @@ const styles = StyleSheet.create({
   done: {
     textAlign: 'center',
     fontSize: 30,
-    color: 'white',
+    color: colors.white,
     backgroundColor: 'transparent'
-  }
-})
+  },
+//   text: { fontFamily: "Raleway_200ExtraLight",
+// },
+  heading: { fontSize: 24, marginBottom: 10, color: colors.gray },
+  price: { color: colors.blue, fontSize: 32, fontWeight: '500' }
+});

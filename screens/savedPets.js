@@ -67,8 +67,11 @@ return (
         <Text style={styles.petName}>elton_john</Text>
         </View>
         <View style={styles.childNavigate}>
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
 
           <Text style={styles.linkProfile}>Profile</Text>
+          </TouchableOpacity>
+
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View>
         </View>
@@ -85,8 +88,10 @@ return (
         <Text style={styles.petName}>elton_john</Text>
         </View>
         <View style={styles.childNavigate}>
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
 
           <Text style={styles.linkProfile}>Profile</Text>
+          </TouchableOpacity>
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View>
 </View>        
@@ -103,7 +108,11 @@ return (
         </View>
         <View style={styles.childNavigate}>
 
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
           <Text style={styles.linkProfile}>Profile</Text>
+
+</TouchableOpacity>
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View>
         </View>
@@ -120,8 +129,10 @@ return (
         <Text style={styles.petName}>elton_john</Text>
         </View>
         <View style={styles.childNavigate}>
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
 
           <Text style={styles.linkProfile}>Profile</Text>
+</TouchableOpacity>
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View></View>
 
@@ -140,7 +151,10 @@ return (
         </View>
         <View style={styles.childNavigate}>
 
+        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
           <Text style={styles.linkProfile}>Profile</Text>
+</TouchableOpacity>
           <Text style={styles.linkAdopt}>Adopt</Text>
 </View>
         </View>
