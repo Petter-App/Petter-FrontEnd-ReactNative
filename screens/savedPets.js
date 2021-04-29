@@ -3,7 +3,9 @@ import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, V
 import { LinearGradient } from "expo-linear-gradient";
 import { Analytics } from 'aws-amplify';
 import {AppLoading} from "expo";
-import {useFonts,Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black} from "@expo-google-fonts/raleway";
+// import {useFonts,Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black} from "@expo-google-fonts/raleway";
+// import data from '../data';
+// import Tinder from '../tinderSwiper.js';
 
 
 
@@ -16,11 +18,11 @@ const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-
 
 
 export default function savedPets({ navigation }) {
-let [fontsLoaded, error]= useFonts({ Raleway_200ExtraLight,});
+// let [fontsLoaded, error]= useFonts({ Raleway_200ExtraLight,});
  
-if (!fontsLoaded){
-return<AppLoading/>;
-}
+// if (!fontsLoaded){
+// return<AppLoading/>;
+// }
 return (
     <View style={styles.container}>
      
@@ -173,7 +175,7 @@ return (
       </View>
 </ScrollView>
 <View style={styles.bottomView}>
-<TouchableOpacity onPress={() => navigation.push('userProfile')}>
+<TouchableOpacity onPress={() => navigation.push('UserProfile')}>
           <Image source={require('../assets/images/profile.png')} style={styles.childProfile}/>
           </TouchableOpacity>
           <Image source={require('../assets/images/home.png')} style={styles.childHome}/>

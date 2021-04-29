@@ -17,6 +17,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import {useFonts,Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black} from "@expo-google-fonts/raleway";
 
 
+
+
+
 const { width } = Dimensions.get('window');
 
 const stackSize = 4;
@@ -72,13 +75,25 @@ const CardDetails = ({ index }) => (
   </View>
 );
 
+
+// function functionToTry(data, index){
+//   let likedArray = [];
+
+//   likedArray.push(data[index])
+//   return likedArray;
+// }
+
+
 export default function Tinder() {
+  let likedArray = [];
   const [index, setIndex] = React.useState(0);
   const onSwiped = () => {
     transitionRef.current.animateNextTransition();
     setIndex((index + 1) % data.length);
   };
-
+  
+  var myJSON = likedArray[0]
+  // JSON.stringify(likedArray[0]);
   return (
     <SafeAreaView style={styles.container}>
       <MaterialCommunityIcons
@@ -94,6 +109,7 @@ export default function Tinder() {
         }}
       />
       <StatusBar hidden={true} />
+      <View><Text  style={styles.red}>Test {myJSON}</Text></View>
       <View style={styles.swiperContainer}>
         <Swiper
           ref={swiperRef}
@@ -103,15 +119,14 @@ export default function Tinder() {
           infinite
           backgroundColor={'transparent'}
           onSwiped={onSwiped}
-          onTapCard={() => swiperRef.current.swipeLeft()}
+          // onTapCard={functionToTry()}
           cardVerticalMargin={50}
           stackSize={stackSize}
           stackScale={10}
           stackSeparation={14}
           animateOverlayLabelsOpacity
           animateCardOpacity
-          disableTopSwipe
-          disableBottomSwipe
+          
           overlayLabels={{
             left: {
               title: 'NOPE',
@@ -234,5 +249,12 @@ const styles = StyleSheet.create({
 //   text: { fontFamily: "Raleway_200ExtraLight",
 // },
   heading: { fontSize: 24, marginBottom: 10, color: colors.gray },
-  price: { color: colors.blue, fontSize: 32, fontWeight: '500' }
+  price: { color: colors.blue, fontSize: 32, fontWeight: '500' },
+
+  red: {
+    color: 'red',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
 });
+
