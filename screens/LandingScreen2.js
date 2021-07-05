@@ -14,7 +14,7 @@ export default function LandingScreen2({ navigation }) {
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
         <View style={styles.log}>
-          <TouchableOpacity   onPress={() => navigation.push('tinderSwiper')} >
+          <TouchableOpacity   onPress={() => navigation.push('tinderswiper')} >
             <Text>TINDER</Text>
           </TouchableOpacity>
           </View><View style={styles.reg}>
