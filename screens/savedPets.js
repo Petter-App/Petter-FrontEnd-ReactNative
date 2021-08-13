@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import { Analytics } from 'aws-amplify';
-import {AppLoading} from "expo";
-import {useFonts,Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black} from "@expo-google-fonts/raleway";
-
+import { AppLoading } from "expo";
+import { useFonts, Raleway_200ExtraLight, Raleway_400Regular, Raleway_900Black } from "@expo-google-fonts/raleway";
+import data from '../data';
 
 
 
@@ -16,167 +16,171 @@ const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-
 
 
 export default function savedPets({ navigation }) {
-let [fontsLoaded, error]= useFonts({ Raleway_200ExtraLight,});
- 
-if (!fontsLoaded){
-return<AppLoading/>;
-}
-return (
+  let [fontsLoaded, error] = useFonts({ Raleway_200ExtraLight, });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+  return (
     <View style={styles.container}>
-     
+
       <ImageBackground source={image} style={styles.image}>
-<ScrollView>
-<View  style={styles.titleSavedContainer}>
-<Image source={require('../assets/images/saved.png')} 
+        
+        
+        <ScrollView>
+          <View style={styles.titleSavedContainer}>
+            <Image source={require('../assets/images/saved.png')}
               style={styles.titleSaved} />
 
-</View>
-     <View style={styles.viewStyle}>
-     <View>
-        
-        <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-     
-            <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-            </LinearGradient>
-            </View>
-        <View style={styles.childStyle}>
+          </View>
+          <View style={styles.viewStyle}>
+            <View>
 
-<View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-<View>
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-          <Text style={styles.linkProfile}>Profile</Text>
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+            <View style={styles.childStyle}>
+
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+                <View>
+                  <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+                    <Text style={styles.linkProfile}>Profile</Text>
+                  </TouchableOpacity>
+                </View>
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View>
+            </View>
+
+            <View>
+
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+            <View style={styles.childStyle}>
+
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+                <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
+                  <Text style={styles.linkProfile}>Profile</Text>
+                </TouchableOpacity>
+
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View>
+            </View>
+
+            <View>
+
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+            <View style={styles.childStyle}>
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+                <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
+                  <Text style={styles.linkProfile}>Profile</Text>
+                </TouchableOpacity>
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View>
+            </View>
+            <View>
+
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+            <View style={styles.childStyle}>
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+
+                <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
+                  <Text style={styles.linkProfile}>Profile</Text>
+
+                </TouchableOpacity>
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View>
+            </View>
+
+            <View>
+
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+
+            
+            <View style={styles.childStyle}>
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+                <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
+                  <Text style={styles.linkProfile}>Profile</Text>
+                </TouchableOpacity>
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View></View>
+
+            <View>
+
+              <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
+
+                <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1} />
+              </LinearGradient>
+            </View>
+
+
+            <View style={styles.childStyle}>
+              <View style={styles.childTitle}>
+                <Text style={styles.petName}>elton_john</Text>
+              </View>
+              <View style={styles.childNavigate}>
+
+                <TouchableOpacity onPress={() => navigation.push('petProfile')}>
+
+                  <Text style={styles.linkProfile}>Profile</Text>
+                </TouchableOpacity>
+                <Text style={styles.linkAdopt}>Adopt</Text>
+              </View>
+            </View>
+
+          </View>
+
+          <View style={styles.buttonStyle}>
+            <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearGradient}>
+
+              <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
+                <Text style={styles.buttonText}>Find a Match</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+
+
+          </View>
+        </ScrollView>
+        <View style={styles.bottomView}>
+          <TouchableOpacity onPress={() => navigation.push('userProfile')}>
+            <Image source={require('../assets/images/profile.png')} style={styles.childProfile} />
           </TouchableOpacity>
-      </View>
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View>
-        </View>
-
-        <View>
-        
-        <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-     
-            <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-            </LinearGradient>
-            </View>
-        <View style={styles.childStyle}>
-
-<View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-
-          <Text style={styles.linkProfile}>Profile</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View>
-        </View>
-
-        <View>
-        
-        <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-     
-            <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-            </LinearGradient>
-            </View>
-        <View style={styles.childStyle}>
-        <View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-
-          <Text style={styles.linkProfile}>Profile</Text>
-          </TouchableOpacity>
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View>
-</View>        
-<View>
-        
-        <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-     
-            <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-            </LinearGradient>
-            </View>
-        <View style={styles.childStyle}>
-        <View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-
-          <Text style={styles.linkProfile}>Profile</Text>
-
-</TouchableOpacity>
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View>
-        </View>
-
-        <View>
-        
-        <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-     
-            <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-            </LinearGradient>
-            </View>
-        <View style={styles.childStyle}>
-        <View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-
-          <Text style={styles.linkProfile}>Profile</Text>
-</TouchableOpacity>
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View></View>
-
-   <View>
-        
-   <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearCircle}>
-
-       <Image source={require('../assets/images/elton.jpg')} style={styles.childStyle1}/>
-       </LinearGradient>
-       </View>
-      
-
-        <View style={styles.childStyle}>
-        <View style={styles.childTitle}>
-        <Text style={styles.petName}>elton_john</Text>
-        </View>
-        <View style={styles.childNavigate}>
-
-        <TouchableOpacity onPress={() => navigation.push('petProfile')}>
-
-          <Text style={styles.linkProfile}>Profile</Text>
-</TouchableOpacity>
-          <Text style={styles.linkAdopt}>Adopt</Text>
-</View>
-        </View>
-
-</View>
-
-<View style={styles.buttonStyle}>
-          <LinearGradient colors={['#FF008A', '#FF4D00']} start={[0.3, 0.1]} style={styles.linearGradient}>
-
-            <TouchableOpacity style={styles.linearButton} onPress={() => navigation.push('PetsPublic')} >
-              <Text style={styles.buttonText}>Find a Match</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
-
-      </View>
-</ScrollView>
-<View style={styles.bottomView}>
-<TouchableOpacity onPress={() => navigation.push('userProfile')}>
-          <Image source={require('../assets/images/profile.png')} style={styles.childProfile}/>
-          </TouchableOpacity>
-          <Image source={require('../assets/images/home.png')} style={styles.childHome}/>
+          <Image source={require('../assets/images/home.png')} style={styles.childHome} />
 
 
         </View>
@@ -543,11 +547,11 @@ const styles = StyleSheet.create(
 
     },
 
-  
+
 
 
     linearGradient: {
-      flex:1,
+      flex: 1,
 
       marginTop: 140,
       width: '60%',
@@ -596,8 +600,8 @@ const styles = StyleSheet.create(
       width: '60%',
       height: 100,
       backgroundColor: 'white',
-      left:40,
-    
+      left: 40,
+
       borderRadius: 5,
 
 
@@ -613,7 +617,7 @@ const styles = StyleSheet.create(
 
 
       marginTop: 3,
-      left:3,
+      left: 3,
 
 
 
@@ -629,35 +633,35 @@ const styles = StyleSheet.create(
 
 
     },
-linearCircle:{
+    linearCircle: {
 
-  marginTop: 20,
-  height: 100,
-  left:30,
+      marginTop: 20,
+      height: 100,
+      left: 30,
 
 
-  width: 95,
-  height: 95,
-  borderRadius: 95 / 2,
+      width: 95,
+      height: 95,
+      borderRadius: 95 / 2,
 
-},
-    titleSavedContainer:{
+    },
+    titleSavedContainer: {
       justifyContent: 'center',
       alignItems: 'center',
     },
 
     titleSaved: {
-      marginTop:100,
+      marginTop: 100,
 
     },
 
-    childTitle:{
+    childTitle: {
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
       flexDirection: 'row',
-      fontSize:40,
-      
+      fontSize: 40,
+
     },
     bottomView: {
       width: '100%',
@@ -667,10 +671,10 @@ linearCircle:{
       alignItems: 'center',
       position: 'absolute',
       bottom: 0,
-      borderColor:'white',
+      borderColor: 'white',
       borderWidth: 4,
-      borderRadius:5,
-      
+      borderRadius: 5,
+
 
       shadowOpacity: 0.80,
       shadowOffset: { width: 0, height: 4 },
@@ -684,55 +688,55 @@ linearCircle:{
 
     },
 
-childProfile:{
-  justifyContent:'center',
-  width: 80,
+    childProfile: {
+      justifyContent: 'center',
+      width: 80,
 
-},
-
-
-childHome:{
-  justifyContent:'center',
-  height: 35,
-  width:35,
-},
-
-childNavigate:{
-
-  justifyContent: 'center',
-  alignItems: 'center',
-  flex: 1,
-  flexDirection: 'row',
-  
-
-},
-
-linkProfile:{
-  margin:20,
-  top:-10,
-  fontWeight: "bold",
-  fontSize:18,
+    },
 
 
-},
+    childHome: {
+      justifyContent: 'center',
+      height: 35,
+      width: 35,
+    },
 
-linkAdopt:{
+    childNavigate: {
 
-  top:-10,
-  margin:20,
-  color:'#FF008A',
-  fontSize:18,
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      flexDirection: 'row',
 
 
+    },
+
+    linkProfile: {
+      margin: 20,
+      top: -10,
+      fontWeight: "bold",
+      fontSize: 18,
+
+
+    },
+
+    linkAdopt: {
+
+      top: -10,
+      margin: 20,
+      color: '#FF008A',
+      fontSize: 18,
 
 
 
-},
 
-petName:{
-  fontSize:20,
-  fontFamily: "Raleway_200ExtraLight",
-},
+
+    },
+
+    petName: {
+      fontSize: 20,
+      fontFamily: "Raleway_200ExtraLight",
+    },
 
 
   });

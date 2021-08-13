@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import { Analytics } from 'aws-amplify'
-
 Analytics.configure({ disabled: true })
 
 
 const image = { uri: "https://storage.pixteller.com/designs/designs-images/2020-07-02/02/paws-placeholder-1-5efd20a15f0f0.png" };
-
 
 
 
